@@ -13,22 +13,22 @@ interface ProjectModalProps {
 
 /** Tech-badge colour map — extend freely */
 const TECH_COLORS: Record<string, string> = {
-  "Next.js":       "bg-white/10 text-white border-white/20",
-  "React":         "bg-cyan-500/15 text-cyan-300 border-cyan-500/25",
-  "React Native":  "bg-cyan-500/15 text-cyan-300 border-cyan-500/25",
-  "TypeScript":    "bg-blue-500/15 text-blue-300 border-blue-500/25",
-  "Python":        "bg-yellow-400/15 text-yellow-300 border-yellow-400/25",
-  "PyTorch":       "bg-orange-500/15 text-orange-300 border-orange-500/25",
-  "Three.js":      "bg-green-500/15 text-green-300 border-green-500/25",
-  "WebGL 2":       "bg-purple-500/15 text-purple-300 border-purple-500/25",
-  "GLSL":          "bg-purple-500/15 text-purple-300 border-purple-500/25",
-  "Docker":        "bg-sky-500/15 text-sky-300 border-sky-500/25",
-  "Kubernetes":    "bg-sky-400/15 text-sky-200 border-sky-400/25",
-  "FastAPI":       "bg-teal-500/15 text-teal-300 border-teal-500/25",
-  "WebSockets":    "bg-fuchsia-500/15 text-fuchsia-300 border-fuchsia-500/25",
-  "Kafka":         "bg-red-500/15 text-red-300 border-red-500/25",
-  "TailwindCSS":   "bg-teal-400/15 text-teal-200 border-teal-400/25",
-  "Expo":          "bg-white/10 text-white border-white/20",
+  "Next.js": "bg-white/10 text-white border-white/20",
+  "React": "bg-cyan-500/15 text-cyan-300 border-cyan-500/25",
+  "React Native": "bg-cyan-500/15 text-cyan-300 border-cyan-500/25",
+  "TypeScript": "bg-blue-500/15 text-blue-300 border-blue-500/25",
+  "Python": "bg-yellow-400/15 text-yellow-300 border-yellow-400/25",
+  "PyTorch": "bg-orange-500/15 text-orange-300 border-orange-500/25",
+  "Three.js": "bg-green-500/15 text-green-300 border-green-500/25",
+  "WebGL 2": "bg-purple-500/15 text-purple-300 border-purple-500/25",
+  "GLSL": "bg-purple-500/15 text-purple-300 border-purple-500/25",
+  "Docker": "bg-sky-500/15 text-sky-300 border-sky-500/25",
+  "Kubernetes": "bg-sky-400/15 text-sky-200 border-sky-400/25",
+  "FastAPI": "bg-teal-500/15 text-teal-300 border-teal-500/25",
+  "WebSockets": "bg-fuchsia-500/15 text-fuchsia-300 border-fuchsia-500/25",
+  "Kafka": "bg-red-500/15 text-red-300 border-red-500/25",
+  "TailwindCSS": "bg-teal-400/15 text-teal-200 border-teal-400/25",
+  "Expo": "bg-white/10 text-white border-white/20",
 };
 
 function getBadgeClass(tech: string): string {
@@ -165,6 +165,17 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     >
                       <Play className="w-4 h-4" />
                       Video Demo
+                    </a>
+                  )}
+                  {project.links.link && (
+                    <a
+                      href={project.links.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/8 hover:bg-white/15 border border-white/10 hover:border-white/25 text-white/80 hover:text-white text-sm font-semibold transition-all duration-200"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      {project.links.linkLabel || "External Link"}
                     </a>
                   )}
                 </div>

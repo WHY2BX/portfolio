@@ -22,6 +22,8 @@ export type Project = {
     github?: string;
     live?: string;
     demo?: string;
+    link?: string;
+    linkLabel?: string;
   };
 };
 
@@ -38,15 +40,14 @@ export const projects: Project[] = [
     image: "/cards/fool.png",
     showcaseImage: "/cards/fool.png",
     tech: ["Unreal Engine 5", "SQLite", "Figma", "Lucid Chart"],
-    featured: true,
+    featured: false,
     thesis: true,
     links: {
       demo: "https://youtu.be/BeYduilOIRU?si=RpXxodyVDYI5lBtj",
-      live: "https://ieeexplore.ieee.org/document/11597079",
+      link: "https://ieeexplore.ieee.org/document/11597079",
+      linkLabel: "IEEE Paper",
     },
   },
-
-  // ─── GRID PROJECTS ───────
   {
     id: "pocket-money",
     title: "Pocket-Money",
@@ -61,7 +62,11 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/WHY2BX",
     },
+    featured: true
   },
+
+  // ─── GRID PROJECTS ───────
+
   {
     id: "dumbthought",
     title: "Dumbthought",
