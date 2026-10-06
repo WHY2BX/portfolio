@@ -172,9 +172,6 @@ export default function Card({ isFlipped = false }: { isFlipped?: boolean }) {
     setRotate({ x: 0, y: 0 });
   };
 
-  // Mirror shine X-axis for the back face (it's rotated 180°)
-  const backShine = { x: 100 - shine.x, y: shine.y };
-
   return (
     /* 1 · Mouse-capture + perspective */
     <div
@@ -183,25 +180,24 @@ export default function Card({ isFlipped = false }: { isFlipped?: boolean }) {
       className="w-[580px] h-[340px] cursor-default"
       style={{ perspective: "1200px" }}
     >
-      {/* 2 · Flip layer — smooth animated rotation */}
+      {/* 2 · Tilt layer (Parent) — instant mouse follow, always in un-flipped coordinate space */}
       <div
+        className="w-full h-full"
         style={{
-          width: "100%",
-          height: "100%",
           transformStyle: "preserve-3d",
-          transition: "transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)",
-          transform: `rotateY(${isFlipped ? 180 : 0}deg)`,
+          transform: isHovered
+            ? `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale(1.03)`
+            : "rotateX(0deg) rotateY(0deg) scale(1)",
+          transition: isHovered ? "none" : "transform 0.3s ease-out",
         }}
       >
-        {/* 3 · Tilt layer — instant mouse follow, smooth reset */}
+        {/* 3 · Flip layer (Child) — smooth animated rotation */}
         <div
           className="relative w-full h-full"
           style={{
             transformStyle: "preserve-3d",
-            transform: isHovered
-              ? `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale(1.03)`
-              : "rotateX(0deg) rotateY(0deg) scale(1)",
-            transition: isHovered ? "none" : "transform 0.3s ease-out",
+            transition: "transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)",
+            transform: `rotateY(${isFlipped ? 180 : 0}deg)`,
           }}
         >
           {/* 4a · FRONT face */}
@@ -230,7 +226,7 @@ export default function Card({ isFlipped = false }: { isFlipped?: boolean }) {
           >
             <CardFaceContent
               data={backData}
-              shine={backShine}
+              shine={shine}
               isHovered={isHovered}
             />
           </div>
