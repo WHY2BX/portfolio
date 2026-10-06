@@ -41,7 +41,8 @@ export const projects: Project[] = [
     featured: true,
     thesis: true,
     links: {
-      github: "https://github.com/WHY2BX",
+      demo: "https://youtu.be/BeYduilOIRU?si=RpXxodyVDYI5lBtj",
+      live: "https://ieeexplore.ieee.org/document/11597079",
     },
   },
 
