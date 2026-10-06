@@ -151,4 +151,201 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  /* ─── Skill Tree Styles ─── */
+
+  .skill-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill-root-title {
+    padding: 14px 48px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 14px;
+    box-shadow:
+      0 0 40px rgba(255, 255, 255, 0.03),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    position: relative;
+  }
+
+  /* Vertical connector line */
+  .tree-connector-v {
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.06)
+    );
+  }
+
+  /* Horizontal connector bar */
+  .tree-connector-h {
+    position: absolute;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.04)
+    );
+    z-index: 1;
+  }
+
+  .top-row-bar {
+    left: 25%;
+    right: 25%;
+  }
+
+  .bottom-row-bar {
+    left: 16.6%;
+    right: 16.6%;
+  }
+
+  /* Branch vertical connectors from horizontal bar into cards */
+  .branch-connector-left {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    height: 28px;
+    z-index: 1;
+  }
+
+  .branch-connector-right {
+    position: absolute;
+    top: 0;
+    right: 25%;
+    height: 28px;
+    z-index: 1;
+    margin-left: auto;
+    /* right side needs translate to center the 1px line */
+    transform: translateX(50%);
+  }
+
+  .branch-connector-left {
+    transform: translateX(-50%);
+  }
+
+  .branch-connector-third-1 {
+    position: absolute;
+    top: 0;
+    left: 16.66%;
+    height: 28px;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .branch-connector-third-2 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 28px;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .branch-connector-third-3 {
+    position: absolute;
+    top: 0;
+    right: 16.66%;
+    height: 28px;
+    transform: translateX(50%);
+    z-index: 1;
+  }
+
+  /* Branch card with corner accents */
+  .skill-branch-card {
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 28px 20px;
+    position: relative;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    margin-top: 28px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .skill-branch-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 40px rgba(255, 255, 255, 0.02);
+  }
+
+  /* Decorative corner brackets */
+  .corner-accent {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-color: rgba(255, 255, 255, 0.12);
+    pointer-events: none;
+  }
+
+  .corner-accent.border-t.border-l {
+    border-top-left-radius: 4px;
+  }
+  .corner-accent.border-t.border-r {
+    border-top-right-radius: 4px;
+  }
+  .corner-accent.border-b.border-l {
+    border-bottom-left-radius: 4px;
+  }
+  .corner-accent.border-b.border-r {
+    border-bottom-right-radius: 4px;
+  }
+
+  /* Skill tag pill */
+  .skill-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+    user-select: none;
+  }
+
+  .skill-tag:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.95);
+    box-shadow:
+      0 0 20px rgba(255, 255, 255, 0.04),
+      0 4px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive: hide tree lines on mobile, just show stacked */
+  @media (max-width: 767px) {
+    .tree-connector-h,
+    .branch-connector-left,
+    .branch-connector-right,
+    .branch-connector-third-1,
+    .branch-connector-third-2,
+    .branch-connector-third-3 {
+      display: none;
+    }
+
+    .skill-branch-card {
+      margin-top: 0;
+    }
+
+    .tree-connector-v:not([style]) {
+      height: 24px !important;
+    }
+  }
 }
