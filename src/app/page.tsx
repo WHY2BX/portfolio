@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Card from "@/components/card";
 import MusicPlayer from "@/components/MusicPlayer";
+import Snow from "@/components/Snow";
 import { RotateCcw } from "lucide-react";
 
 export default function Page() {
@@ -18,6 +19,9 @@ export default function Page() {
 
       {/* Dark vignette overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/85 pointer-events-none" />
+
+      {/* Minimal snow effect */}
+      <Snow />
 
       {/* Main card */}
       <div className="relative z-10">

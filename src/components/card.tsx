@@ -19,33 +19,33 @@ type CardData = {
 
 const frontData: CardData = {
   icon: Terminal,
-  title: "ACHOO",
-  subtitle: "IT, KMITL",
+  title: "Developer",
+  subtitle: "Back-end / Full-Stack",
   badge: "Available",
   label: "Access Permit",
   name: "Supitcha Wis",
   description:
-    "Authorized for full-stack engineering, interactive UI animations, and technical architecture.",
+    "Fresh Graduate from School of Information Technology, King Mongkut's Institute of Technology Ladkrabang with Second Class Honor",
   info: [
-    { label: "Passenger", value: "Achoo / Developer" },
-    { label: "Gate / Class", value: "Web-3000 / First" },
-    { label: "Flight Code", value: "NEXT-15-TURBO" },
+    { label: "Passenger", value: "Bambam" },
+    { label: "FAC / UNI", value: "IT / KMITL" },
+    { label: "Interested Position", value: "BA / Dev / IT Recruiter" },
   ],
 };
 
 const backData: CardData = {
   icon: Gamepad2,
-  title: "ACHOO",
-  subtitle: "Gamer",
+  title: "GAMER",
+  subtitle: "缘分, 一期一会",
   badge: "Online",
   label: "Player ID",
-  name: "Achoo",
+  name: "ACHOO",
   description:
-    "Authorized for gaming sessions, competitive matches, and late-night raids.",
+    "Valorant Player, Jett main",
   info: [
-    { label: "Player", value: "Achoo / Gamer" },
+    { label: "Player", value: "ACHOO #404" },
     { label: "Server", value: "Asia / SEA" },
-    { label: "Status", value: "LFG-READY" },
+    { label: "Rank", value: "Diamond I" },
   ],
 };
 
