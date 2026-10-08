@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Card from "@/components/card";
 import MusicPlayer from "@/components/MusicPlayer";
 import Snow from "@/components/Snow";
@@ -24,18 +25,26 @@ export default function Page() {
       <Snow />
 
       {/* Main card */}
-      <div className="relative z-10">
+      <motion.div
+        className="relative z-10"
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
         <Card isFlipped={isFlipped} />
-      </div>
+      </motion.div>
 
       {/* Flip arrow button — bottom left */}
-      <button
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
         onClick={() => setIsFlipped((prev) => !prev)}
         className={`flip-arrow-btn ${isFlipped ? "flipped" : ""}`}
         aria-label="Flip card"
       >
         <RotateCcw className="w-5 h-5" />
-      </button>
+      </motion.button>
 
       <MusicPlayer />
     </main>

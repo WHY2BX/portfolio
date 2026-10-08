@@ -1,4 +1,3 @@
-import TopNavBar from "@/components/TopNavBar";
 import ContactTicket from "@/components/ContactTicket";
 import ContactCards from "@/components/ContactCards";
 import Footer from "@/components/Footer";
@@ -8,8 +7,6 @@ export default function ContactPage() {
     <>
       {/* Noise overlay */}
       <div className="fixed inset-0 noise-bg z-[-1]" />
-
-      <TopNavBar />
 
       <main className="min-h-screen pt-40 pb-20 px-margin-mobile md:px-margin-desktop flex flex-col items-center justify-center">
         {/* Ambient Background */}

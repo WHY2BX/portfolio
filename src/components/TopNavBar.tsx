@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -14,7 +15,12 @@ export default function TopNavBar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50 rounded-2xl border border-white/8 bg-black/35 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] transition-all duration-300">
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.8, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50 rounded-2xl border border-white/8 bg-black/35 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]"
+    >
       <div className="flex justify-between items-center px-6 h-16 w-full">
         {/* Logo */}
         <div className="text-xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/60 hover:scale-105 transition-transform duration-300">
@@ -29,13 +35,20 @@ export default function TopNavBar() {
               <Link
                 key={href}
                 href={href}
-                className={`relative px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
-                  isActive
-                    ? "bg-white text-black shadow-[0_4px_12px_rgba(255,255,255,0.1)] border border-white"
-                    : "text-white/60 hover:text-white hover:bg-white/5 border border-transparent"
-                }`}
+                className={`relative px-4 py-1.5 rounded-full text-xs font-semibold transition-colors duration-300 ${isActive
+                  ? "text-black"
+                  : "text-white/60 hover:text-white hover:bg-white/5"
+                  }`}
               >
-                {label}
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-active-pill"
+                    className="absolute inset-0 rounded-full bg-white shadow-[0_4px_12px_rgba(255,255,255,0.1)]"
+                    initial={false}
+                    transition={{ type: "spring", stiffness: 400, damping: 34 }}
+                  />
+                )}
+                <span className="relative z-10">{label}</span>
               </Link>
             );
           })}
@@ -49,6 +62,6 @@ export default function TopNavBar() {
           Hire Me
         </Link>
       </div>
-    </header>
+    </motion.header>
   );
 }
