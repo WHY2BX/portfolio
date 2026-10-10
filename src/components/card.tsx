@@ -78,19 +78,19 @@ function CardFaceContent({
       {/* Top Header */}
       <div className="flex justify-between items-start relative z-10">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/80">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-white/12 to-white/[0.02] border border-white/10 flex items-center justify-center text-zinc-200">
             <Icon className="w-5 h-5 animate-pulse" />
           </div>
           <div>
-            <h2 className="text-white text-base font-bold tracking-tight">
+            <h2 className="type-h4 text-white">
               {data.title}
             </h2>
-            <p className="text-[10px] text-zinc-400 font-medium uppercase tracking-widest mt-0.5">
+            <p className="type-micro text-zinc-400 mt-0.5">
               {data.subtitle}
             </p>
           </div>
         </div>
-        <span className="inline-block px-3 py-1 rounded-full text-[9px] font-semibold uppercase tracking-widest text-white bg-white/10 border border-white/25">
+        <span className="inline-block px-3 py-1 rounded-full type-micro text-black bg-gradient-to-b from-white to-zinc-300 border border-white/40">
           {data.badge}
         </span>
       </div>
@@ -98,13 +98,13 @@ function CardFaceContent({
       {/* Center / Body */}
       <div className="flex justify-between items-center my-4 relative z-10">
         <div className="space-y-1">
-          <span className="text-[9px] text-white/40 uppercase tracking-widest block">
+          <span className="type-micro text-zinc-500 block">
             {data.label}
           </span>
-          <h1 className="text-3xl font-extrabold tracking-tight text-white uppercase">
+          <h1 className="type-h1 uppercase text-gradient-white">
             {data.name}
           </h1>
-          <p className="text-[11px] text-white/60 max-w-[340px]">
+          <p className="text-[13px] leading-relaxed text-zinc-400 max-w-[360px]">
             {data.description}
           </p>
         </div>
@@ -121,10 +121,10 @@ function CardFaceContent({
         <div className="flex gap-8">
           {data.info.map((item) => (
             <div key={item.label}>
-              <span className="text-[8px] text-white/40 uppercase tracking-widest block">
+              <span className="text-[10px] font-semibold text-zinc-500 uppercase tracking-[0.14em] block">
                 {item.label}
               </span>
-              <span className="text-xs font-semibold text-white/90">
+              <span className="text-sm font-semibold text-zinc-100">
                 {item.value}
               </span>
             </div>

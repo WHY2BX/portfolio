@@ -67,24 +67,24 @@ export default function ContactTicket() {
           ticketRef.current.style.boxShadow = "";
         }
       }}
-      className="w-full max-w-[1000px] bg-white/[0.01] backdrop-blur-2xl border border-white/8 rounded-3xl flex flex-col md:flex-row overflow-hidden relative transition-all duration-500 shadow-2xl"
+      className="w-full max-w-[1000px] bg-gradient-to-br from-zinc-800/40 via-zinc-900/40 to-black/60 backdrop-blur-2xl border border-white/10 rounded-3xl flex flex-col md:flex-row overflow-hidden relative transition-all duration-500 shadow-2xl"
     >
       {/* Left Section: Form Content */}
       <div className="flex-1 p-8 md:p-10">
         <div className="flex items-center justify-between mb-8">
           <div className="flex flex-col">
-            <span className="text-[9px] font-mono text-white/40 uppercase tracking-widest">
+            <span className="type-micro font-mono text-zinc-500 mb-1">
               Voucher Type
             </span>
-            <span className="text-xl font-extrabold text-white tracking-tight uppercase">
+            <h2 className="type-h2 uppercase text-gradient-white">
               Inquiry Pass
-            </span>
+            </h2>
           </div>
           <div className="flex flex-col text-right">
-            <span className="text-[9px] font-mono text-white/40 uppercase tracking-widest">
+            <span className="type-micro font-mono text-zinc-500 mb-1">
               Issue Date
             </span>
-            <span className="text-[10px] font-mono text-white tracking-wider">
+            <span className="text-sm font-mono text-zinc-200 tracking-wider">
               2026.06.24
             </span>
           </div>
@@ -93,7 +93,7 @@ export default function ContactTicket() {
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className="text-[9px] font-mono text-white/50 uppercase tracking-wider block">
+              <label className="type-micro font-mono text-zinc-400 block">
                 Passenger Name
               </label>
               <input
@@ -102,11 +102,11 @@ export default function ContactTicket() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Your Name"
-                className="w-full glass-input rounded-xl px-4 py-3 text-white placeholder:text-white/20 text-xs"
+                className="w-full glass-input rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 type-body-sm"
               />
             </div>
             <div className="space-y-2">
-              <label className="text-[9px] font-mono text-white/50 uppercase tracking-wider block">
+              <label className="type-micro font-mono text-zinc-400 block">
                 Contact Email
               </label>
               <input
@@ -115,13 +115,13 @@ export default function ContactTicket() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="email@example.com"
-                className="w-full glass-input rounded-xl px-4 py-3 text-white placeholder:text-white/20 text-xs"
+                className="w-full glass-input rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 type-body-sm"
               />
             </div>
           </div>
 
           <div className="space-y-2">
-            <label className="text-[9px] font-mono text-white/50 uppercase tracking-wider block">
+            <label className="type-micro font-mono text-zinc-400 block">
               Project Mission
             </label>
             <textarea
@@ -130,7 +130,7 @@ export default function ContactTicket() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Tell me about your project, vision, or timeline..."
-              className="w-full glass-input rounded-xl px-4 py-3 text-white placeholder:text-white/20 text-xs resize-none"
+              className="w-full glass-input rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 type-body-sm resize-none"
             />
           </div>
         </div>
@@ -142,21 +142,21 @@ export default function ContactTicket() {
       {/* Right Section: Stub / Info & Submit */}
       <div className="w-full md:w-[320px] bg-white/[0.005] flex flex-col items-center justify-between p-8 relative ticket-tear-hover group transition-all duration-500">
         {/* Tear cutouts */}
-        <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-[#030014] border border-white/8 hidden md:block" />
-        <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 w-7 h-7 rounded-full bg-[#030014] border border-white/8 hidden md:block" />
+        <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-[#0c0c0e] border border-white/10 hidden md:block" />
+        <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 w-7 h-7 rounded-full bg-[#050506] border border-white/10 hidden md:block" />
 
         <div className="w-full flex flex-col items-center gap-6 h-full justify-center">
           <DiscordCard />
 
           {/* Form Status Messages */}
           {status === "success" && (
-            <div className="flex items-center gap-2 text-white text-xs font-semibold animate-fade-in">
+            <div className="flex items-center gap-2 text-white type-body-sm font-semibold animate-fade-in">
               <CheckCircle2 className="w-4 h-4 shrink-0 text-white" />
               <span>Ticket Issued Successfully!</span>
             </div>
           )}
           {status === "error" && (
-            <div className="flex items-center gap-2 text-zinc-400 text-xs font-medium animate-fade-in">
+            <div className="flex items-center gap-2 text-zinc-400 type-body-sm font-medium animate-fade-in">
               <AlertTriangle className="w-4 h-4 shrink-0 text-zinc-400" />
               <span>Transmission Failed.</span>
             </div>
@@ -165,10 +165,10 @@ export default function ContactTicket() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full glass-button hover:bg-white/10 text-white rounded-xl py-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg cursor-pointer"
+            className="w-full btn-primary rounded-xl py-3 type-caption flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
           >
             {status === "loading" ? (
-              <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              <span className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
             ) : (
               <>
                 <Send className="w-3.5 h-3.5" />

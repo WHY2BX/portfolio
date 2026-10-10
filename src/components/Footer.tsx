@@ -9,20 +9,20 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full py-16 border-t border-white/5 bg-black">
-      <div className="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-[1440px] mx-auto gap-8">
-        <div className="font-label-caps text-label-caps text-white/40 uppercase tracking-widest">
-          GOLDEN TICKET PORTFOLIO
+    <footer className="w-full py-16 border-t border-white/8 bg-gradient-to-b from-zinc-950 to-black">
+      <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-12 max-w-[1440px] mx-auto gap-8">
+        <div className="type-caption text-zinc-300">
+          SUPITCHA WIS PORTFOLIO
         </div>
-        <div className="font-body-sm text-white/40">
-          © 2024 Golden Ticket Portfolio. All rights reserved.
+        <div className="type-body-sm text-zinc-500">
+          © 2024 SUPITCHA WIS Portfolio. All rights reserved.
         </div>
         <div className="flex gap-8">
           {socialLinks.map(({ label, href }) => (
             <Link
               key={label}
               href={href}
-              className="text-white/40 hover:text-white transition-colors font-label-caps text-label-caps"
+              className="text-zinc-500 hover:text-white transition-colors type-micro"
             >
               {label}
             </Link>

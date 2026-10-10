@@ -61,18 +61,18 @@ export default function CertificatesPage() {
       <main className="min-h-screen pt-36 pb-20 px-4 md:px-12 flex flex-col items-center relative overflow-hidden select-none">
         
         {/* Ambient light ring */}
-        <div className="absolute top-1/3 left-1/3 w-[600px] h-[400px] bg-purple-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+        <div className="absolute top-1/3 left-1/3 w-[600px] h-[400px] bg-zinc-500/[0.06] rounded-full blur-[140px] pointer-events-none -z-10" />
 
         {/* Header Title */}
-        <div className="text-center max-w-xl mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/5 bg-white/5 mb-4">
-            <Briefcase className="w-3.5 h-3.5 text-indigo-400" />
-            <span className="text-[10px] font-mono tracking-widest text-indigo-200 uppercase">Experience</span>
+        <div className="text-center max-w-2xl mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-gradient-to-b from-white/10 to-white/[0.02] mb-5">
+            <Briefcase className="w-3.5 h-3.5 text-zinc-300" />
+            <span className="type-caption text-zinc-300">Experience</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white uppercase mb-2 text-gradient-white">
-            EXPERIENCE & ACTIVITIES
+          <h1 className="type-display uppercase mb-4 text-gradient-white">
+            Experience &amp; Activities
           </h1>
-          <p className="text-xs md:text-sm text-white/50">
+          <p className="type-lead text-zinc-400">
             Professional work experience and extracurricular activities.
           </p>
         </div>
@@ -88,35 +88,35 @@ export default function CertificatesPage() {
             <motion.div
               key={index}
               variants={cardVariants}
-              className="glass-panel p-6 rounded-2xl hover:bg-white/[0.04] transition-all duration-300 border-white/5 flex flex-col relative group overflow-hidden"
+              className="glass-panel p-7 rounded-2xl hover:border-white/20 transition-all duration-300 flex flex-col relative group overflow-hidden"
             >
               {/* Subtle top card glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="space-y-3 relative z-10 flex-grow">
                 <div className="flex justify-between items-start">
-                  <span className="text-[9px] font-mono bg-white/5 border border-white/12 text-zinc-300 px-2 py-0.5 rounded-md uppercase font-semibold">
+                  <span className="type-micro font-mono bg-gradient-to-b from-white/12 to-white/[0.03] border border-white/12 text-zinc-200 px-2.5 py-1 rounded-md">
                     {exp.organization}
                   </span>
                   <ShieldCheck className="w-4 h-4 text-white opacity-60 group-hover:opacity-100 transition-opacity" />
                 </div>
                 
-                <h2 className="text-lg font-bold text-white tracking-tight group-hover:text-zinc-200 transition-colors">
+                <h2 className="type-h3 text-white group-hover:text-zinc-200 transition-colors">
                   {exp.title}
                 </h2>
                 
-                <p className="text-xs text-white/60 leading-relaxed">
+                <p className="type-body-sm text-zinc-400">
                   {exp.description}
                 </p>
               </div>
 
-              <div className="border-t border-white/5 pt-3 flex items-center justify-between mt-4 relative z-10">
+              <div className="border-t border-white/8 pt-4 flex items-center justify-between mt-5 relative z-10">
                 <div>
-                  <div className="flex items-center gap-1 text-[8px] font-mono text-white/40 uppercase">
+                  <div className="flex items-center gap-1.5 type-micro font-mono text-zinc-500 mb-1">
                     <Calendar className="w-3 h-3" />
                     <span>Period</span>
                   </div>
-                  <span className="text-[9px] font-bold text-white/70">{exp.date}</span>
+                  <span className="text-sm font-semibold text-zinc-200">{exp.date}</span>
                 </div>
               </div>
             </motion.div>

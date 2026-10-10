@@ -61,7 +61,7 @@ export default function DiscordCard() {
     return (
       <div className="w-full max-w-[280px] p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col items-center gap-3 text-center">
         <ShieldAlert className="w-8 h-8 text-white/40" />
-        <p className="text-xs text-white/50">Discord Widget Unavailable</p>
+        <p className="type-body-sm text-zinc-500">Discord Widget Unavailable</p>
       </div>
     );
   }
@@ -81,9 +81,9 @@ export default function DiscordCard() {
   const activity = data.data.activities.find((a) => a.type === 0);
 
   return (
-    <div className="w-full max-w-[280px] rounded-2xl overflow-hidden bg-white/[0.015] backdrop-blur-xl border border-white/8 shadow-2xl relative transition-all duration-300 hover:border-white/15">
+    <div className="w-full max-w-[280px] rounded-2xl overflow-hidden bg-gradient-to-b from-zinc-800/40 to-black/40 backdrop-blur-xl border border-white/10 shadow-2xl relative transition-all duration-300 hover:border-white/20">
       {/* Small Banner */}
-      <div className="h-10 bg-gradient-to-r from-white/10 via-white/5 to-zinc-800/10 border-b border-white/5" />
+      <div className="h-10 bg-gradient-to-r from-zinc-500/30 via-zinc-700/30 to-zinc-900/30 border-b border-white/5" />
 
       <div className="px-5 pb-5 -mt-6 flex flex-col items-center">
         {/* Avatar with Status Ring */}
@@ -100,10 +100,10 @@ export default function DiscordCard() {
 
         {/* User Identifiers */}
         <div className="mt-3 text-center">
-          <h4 className="text-white font-bold text-sm tracking-tight">
+          <h4 className="type-h4 text-white">
             {user.global_name || user.username}
           </h4>
-          <p className="text-[10px] text-white/40 tracking-wider">@{user.username}</p>
+          <p className="text-xs text-zinc-500 tracking-wider">@{user.username}</p>
         </div>
 
         {/* Activity Status */}
@@ -111,20 +111,20 @@ export default function DiscordCard() {
           <div className="mt-4 p-2.5 w-full rounded-xl bg-white/[0.03] border border-white/5 text-left flex items-start gap-2">
             <MessageSquare className="w-4 h-4 text-white/60 shrink-0 mt-0.5" />
             <div className="overflow-hidden">
-              <p className="text-[10px] font-semibold text-white/80 uppercase tracking-wider truncate">
+              <p className="type-micro text-zinc-200 truncate">
                 {activity.name}
               </p>
               {activity.details && (
-                <p className="text-[9px] text-white/50 mt-0.5 truncate">{activity.details}</p>
+                <p className="text-xs text-zinc-400 mt-0.5 truncate">{activity.details}</p>
               )}
               {activity.state && (
-                <p className="text-[9px] text-white/40 mt-0.5 truncate">{activity.state}</p>
+                <p className="text-xs text-zinc-500 mt-0.5 truncate">{activity.state}</p>
               )}
             </div>
           </div>
         ) : (
-          <div className="mt-4 py-2.5 px-3 w-full rounded-xl bg-white/[0.01] border border-white/5 text-center">
-            <p className="text-[9px] text-white/40 italic">No activity current</p>
+          <div className="mt-4 py-2.5 px-3 w-full rounded-xl bg-white/[0.02] border border-white/5 text-center">
+            <p className="text-xs text-zinc-500 italic">No activity current</p>
           </div>
         )}
 
@@ -133,7 +133,7 @@ export default function DiscordCard() {
           href={`https://discord.com/users/${user.id}`}
           target="_blank"
           rel="noreferrer"
-          className="w-full mt-4 text-center text-[10px] font-bold uppercase tracking-wider bg-white/5 border border-white/8 text-white/80 hover:text-white hover:bg-white/10 rounded-xl py-2 transition-all duration-300"
+          className="w-full mt-4 text-center type-micro bg-white/5 border border-white/10 text-zinc-200 hover:text-white hover:bg-white/10 rounded-xl py-2.5 transition-all duration-300"
         >
           Add on Discord
         </a>

@@ -22,7 +22,7 @@ function ProjectCard({ project, onClick, index = 0 }: ProjectCardProps) {
       transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: index * 0.06 }}
       whileHover={{ y: -6 }}
       onClick={() => onClick(project)}
-      className="group cursor-pointer rounded-2xl overflow-hidden bg-white/4 border border-white/8 hover:border-white/20 hover:shadow-2xl hover:shadow-indigo-500/10 transition-[border-color,box-shadow] duration-300 flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+      className="group cursor-pointer rounded-2xl overflow-hidden surface-gradient border border-white/10 hover:border-white/25 hover:shadow-2xl hover:shadow-black/60 transition-[border-color,box-shadow] duration-300 flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
       role="button"
       tabIndex={0}
       aria-label={`Open ${project.title} details`}
@@ -47,25 +47,25 @@ function ProjectCard({ project, onClick, index = 0 }: ProjectCardProps) {
 
       {/* Card content */}
       <div className="p-5 flex-1 flex flex-col gap-1.5">
-        <h3 className="text-base font-bold text-white tracking-tight leading-snug">
+        <h3 className="type-h3 text-white">
           {project.title}
         </h3>
-        <p className="text-[11px] text-indigo-400/80 font-semibold uppercase tracking-wider">
+        <p className="type-micro text-zinc-400">
           {project.subtitle}
         </p>
-        <p className="text-xs text-white/50 leading-relaxed mt-1 line-clamp-2">
+        <p className="type-body-sm text-zinc-400 mt-1.5 line-clamp-2">
           {project.shortDescription}
         </p>
 
         {/* Minimal tech list */}
         <div className="flex flex-wrap gap-1.5 mt-3">
           {project.tech.slice(0, 3).map((t) => (
-            <span key={t} className="px-2 py-0.5 rounded-full bg-white/5 border border-white/8 text-[9px] font-mono text-white/50">
+            <span key={t} className="px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-white/50">
               {t}
             </span>
           ))}
           {project.tech.length > 3 && (
-            <span className="px-2 py-0.5 rounded-full bg-white/5 border border-white/8 text-[9px] font-mono text-white/30">
+            <span className="px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-white/30">
               +{project.tech.length - 3}
             </span>
           )}

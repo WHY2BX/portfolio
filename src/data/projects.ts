@@ -88,8 +88,15 @@ export const projects: Project[] = [
     subtitle: "No longer active (November 2024 - December 2024)",
     shortDescription:
       "A global weather web application that implemented real-time weather data retrieval.",
-    description:
-      "A global weather web application that implemented real-time weather data retrieval and historical search tracking. Using Next.js, OpenWeather API, and MongoDB. Designed a responsive UI with Tailwind CSS.",
+    description: `
+A global weather web application that implemented real-time weather data retrieval and historical search tracking. 
+
+**Key Highlights:**
+- **Stack:** Next.js, OpenWeather API, MongoDB
+- **UI:** Designed a responsive UI with Tailwind CSS
+- Real-time weather data retrieval
+- Historical search tracking
+`,
     image: "/cards/fool.png",
     showcaseImage: "/cards/fool.png",
     tech: ["Next.js", "OpenWeather API", "MongoDB", "Tailwind CSS"],
@@ -103,8 +110,14 @@ export const projects: Project[] = [
     subtitle: "No longer active (September 2024 - October 2024)",
     shortDescription:
       "Hotel Reservation Website built with Django and Postgres.",
-    description:
-      "Hotel Reservation Website. Designed and developed backend functionalities using Django and and styled components with Bootstrap. Implemented Postgres for database management.",
+    description: `
+Hotel Reservation Website. Designed and developed backend functionalities using Django and styled components with Bootstrap.
+
+### Features
+- Hotel room browsing and availability check
+- **Reservation system** managed by Django backend
+- Data persistence with **Postgres**
+`,
     image: "/cards/magician.png",
     showcaseImage: "/cards/magician.png",
     tech: ["Django", "Bootstrap", "Postgres"],

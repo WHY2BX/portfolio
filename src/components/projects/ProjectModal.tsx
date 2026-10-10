@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { X, Github, ExternalLink, Play } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 import type { Project } from "@/data/projects";
 
 interface ProjectModalProps {
@@ -11,28 +12,13 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-/** Tech-badge colour map — extend freely */
-const TECH_COLORS: Record<string, string> = {
-  "Next.js": "bg-white/10 text-white border-white/20",
-  "React": "bg-cyan-500/15 text-cyan-300 border-cyan-500/25",
-  "React Native": "bg-cyan-500/15 text-cyan-300 border-cyan-500/25",
-  "TypeScript": "bg-blue-500/15 text-blue-300 border-blue-500/25",
-  "Python": "bg-yellow-400/15 text-yellow-300 border-yellow-400/25",
-  "PyTorch": "bg-orange-500/15 text-orange-300 border-orange-500/25",
-  "Three.js": "bg-green-500/15 text-green-300 border-green-500/25",
-  "WebGL 2": "bg-purple-500/15 text-purple-300 border-purple-500/25",
-  "GLSL": "bg-purple-500/15 text-purple-300 border-purple-500/25",
-  "Docker": "bg-sky-500/15 text-sky-300 border-sky-500/25",
-  "Kubernetes": "bg-sky-400/15 text-sky-200 border-sky-400/25",
-  "FastAPI": "bg-teal-500/15 text-teal-300 border-teal-500/25",
-  "WebSockets": "bg-fuchsia-500/15 text-fuchsia-300 border-fuchsia-500/25",
-  "Kafka": "bg-red-500/15 text-red-300 border-red-500/25",
-  "TailwindCSS": "bg-teal-400/15 text-teal-200 border-teal-400/25",
-  "Expo": "bg-white/10 text-white border-white/20",
-};
+/** Tech-badge styles — monochrome palette. Highlighted techs get a lighter chip; extend freely */
+const HIGHLIGHT_TECH = new Set<string>(["Next.js", "React", "TypeScript", "Python", "Go", "GO"]);
 
 function getBadgeClass(tech: string): string {
-  return TECH_COLORS[tech] ?? "bg-white/5 text-white/70 border-white/10";
+  return HIGHLIGHT_TECH.has(tech)
+    ? "bg-gradient-to-b from-white/20 to-white/5 text-white border-white/25"
+    : "bg-white/5 text-zinc-300 border-white/10";
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
@@ -80,7 +66,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 20 }}
               transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-              className="pointer-events-auto relative w-full max-w-2xl bg-zinc-950/95 border border-white/10 rounded-3xl overflow-hidden shadow-2xl shadow-black/60 flex flex-col max-h-[92vh] outline-none"
+              className="pointer-events-auto relative w-full max-w-2xl bg-gradient-to-b from-zinc-900 via-zinc-950 to-black border border-white/10 rounded-3xl overflow-hidden shadow-2xl shadow-black/60 flex flex-col max-h-[92vh] outline-none"
             >
               {/* Close button */}
               <button
@@ -101,17 +87,17 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   priority
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/30 to-transparent" />
               </div>
 
               {/* Details */}
               {/* Scroll lives in a plain div — not in the animated shell — to avoid composite-layer scroll jank */}
               <div className="overflow-y-auto overscroll-contain custom-scrollbar p-6 sm:p-8 -mt-12 relative z-10">
                 {/* Title block */}
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-1 drop-shadow-lg">
+                <h2 className="type-h1 text-gradient-white mb-2 drop-shadow-lg">
                   {project.title}
                 </h2>
-                <p className="text-indigo-400 font-semibold text-sm sm:text-base mb-6">
+                <p className="type-caption text-zinc-400 mb-6">
                   {project.subtitle}
                 </p>
 
@@ -120,7 +106,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className={`px-3 py-1 rounded-full text-[11px] font-mono font-semibold border ${getBadgeClass(t)}`}
+                      className={`px-3 py-1 rounded-full text-xs font-mono font-semibold border ${getBadgeClass(t)}`}
                     >
                       {t}
                     </span>
@@ -128,9 +114,26 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </div>
 
                 {/* Full description */}
-                <p className="text-white/65 text-sm sm:text-base leading-relaxed mb-8">
-                  {project.description}
-                </p>
+                <div className="type-body text-zinc-400 mb-8">
+                  <ReactMarkdown
+                    components={{
+                      p: ({ node, ...props }) => <p className="mb-4 last:mb-0" {...props} />,
+                      ul: ({ node, ...props }) => <ul className="list-disc pl-5 mb-4 last:mb-0 space-y-1.5" {...props} />,
+                      ol: ({ node, ...props }) => <ol className="list-decimal pl-5 mb-4 last:mb-0 space-y-1.5" {...props} />,
+                      li: ({ node, ...props }) => <li className="marker:text-zinc-600" {...props} />,
+                      strong: ({ node, ...props }) => <strong className="font-semibold text-zinc-100" {...props} />,
+                      a: ({ node, ...props }) => (
+                        <a className="text-white hover:text-zinc-300 underline underline-offset-2 decoration-white/30 transition-colors" target="_blank" rel="noopener noreferrer" {...props} />
+                      ),
+                      h1: ({ node, ...props }) => <h3 className="type-h2 text-white mt-8 mb-3 first:mt-0" {...props} />,
+                      h2: ({ node, ...props }) => <h3 className="type-h3 text-white mt-7 mb-3 first:mt-0" {...props} />,
+                      h3: ({ node, ...props }) => <h3 className="type-h3 text-zinc-100 mt-6 mb-3 first:mt-0" {...props} />,
+                      h4: ({ node, ...props }) => <h4 className="type-h4 text-zinc-200 mt-5 mb-2 first:mt-0" {...props} />,
+                    }}
+                  >
+                    {project.description}
+                  </ReactMarkdown>
+                </div>
 
                 {/* Action links */}
                 <div className="flex flex-wrap gap-3">
@@ -150,7 +153,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                       href={project.links.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all duration-200 shadow-lg shadow-indigo-500/20"
+                      className="btn-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Live Site

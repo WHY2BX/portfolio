@@ -28,18 +28,18 @@ export default function ContactCards() {
     <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-[1000px]">
       {contacts.map(({ icon: Icon, label, value, href }) => {
         const CardElement = (
-          <div className="glass-panel p-6 rounded-2xl flex items-center gap-5 group cursor-pointer hover:bg-white/[0.04] transition-all duration-300 border-white/5 relative overflow-hidden">
+          <div className="glass-panel p-6 rounded-2xl flex items-center gap-5 group cursor-pointer hover:border-white/20 transition-all duration-300 relative overflow-hidden">
             {/* Ambient inner glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
-            <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center text-white/70 group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 relative z-10 shrink-0">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-b from-white/12 to-white/[0.02] border border-white/10 flex items-center justify-center text-zinc-300 group-hover:from-white group-hover:to-zinc-300 group-hover:text-black group-hover:border-white transition-all duration-300 relative z-10 shrink-0">
               <Icon className="w-5 h-5" />
             </div>
             <div className="relative z-10 overflow-hidden">
-              <h4 className="text-[9px] font-mono text-white/40 uppercase tracking-widest">
+              <h3 className="type-micro font-mono text-zinc-500 mb-1">
                 {label}
-              </h4>
-              <p className="text-xs font-semibold text-white/95 truncate">{value}</p>
+              </h3>
+              <p className="type-body-sm font-semibold text-zinc-100 truncate">{value}</p>
             </div>
           </div>
         );

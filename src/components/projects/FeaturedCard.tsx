@@ -17,20 +17,20 @@ const CONFIG = {
   featured: {
     label: "📌 Pinned Project",
     icon: Sparkles,
-    accentBg: "from-indigo-600/20 to-violet-600/10",
-    accentBorder: "border-indigo-500/25 hover:border-indigo-400/50",
-    accentGlow: "hover:shadow-indigo-500/15",
-    badgeClass: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",
-    labelColor: "text-indigo-400",
+    accentBg: "from-zinc-700/40 via-zinc-900/60 to-black",
+    accentBorder: "border-white/12 hover:border-white/30",
+    accentGlow: "hover:shadow-white/5",
+    badgeClass: "bg-gradient-to-b from-white to-zinc-300 text-black border-white/40",
+    labelColor: "text-zinc-300",
   },
   thesis: {
     label: "🎓 Senior Thesis",
     icon: BookOpen,
-    accentBg: "from-violet-600/20 to-fuchsia-600/10",
-    accentBorder: "border-violet-500/25 hover:border-violet-400/50",
-    accentGlow: "hover:shadow-violet-500/15",
-    badgeClass: "bg-violet-500/20 text-violet-300 border-violet-500/30",
-    labelColor: "text-violet-400",
+    accentBg: "from-zinc-800/50 via-zinc-950/70 to-black",
+    accentBorder: "border-white/10 hover:border-white/25",
+    accentGlow: "hover:shadow-white/5",
+    badgeClass: "bg-zinc-800/80 text-zinc-100 border-white/20",
+    labelColor: "text-zinc-400",
   },
 };
 
@@ -70,7 +70,7 @@ function FeaturedCard({
 
         {/* Variant label badge (top-left) */}
         <div className="absolute top-4 left-4">
-          <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${cfg.badgeClass}`}>
+          <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full type-micro border ${cfg.badgeClass}`}>
             {cfg.label}
           </span>
         </div>
@@ -84,13 +84,13 @@ function FeaturedCard({
       {/* Text content */}
       <div className="flex-1 p-6 flex flex-col justify-between gap-4">
         <div>
-          <h3 className="text-2xl font-extrabold text-white tracking-tight mb-1">
+          <h3 className="type-h2 text-white mb-1.5">
             {project.title}
           </h3>
-          <p className={`text-xs font-semibold uppercase tracking-wider mb-3 ${cfg.labelColor}`}>
+          <p className={`type-caption mb-3 ${cfg.labelColor}`}>
             {project.subtitle}
           </p>
-          <p className="text-sm text-white/55 leading-relaxed line-clamp-3">
+          <p className="type-body-sm text-zinc-400 line-clamp-3">
             {project.shortDescription}
           </p>
         </div>
@@ -100,13 +100,13 @@ function FeaturedCard({
           {project.tech.slice(0, 4).map((t) => (
             <span
               key={t}
-              className="px-2.5 py-1 rounded-full bg-white/5 border border-white/8 text-[10px] font-mono text-white/50"
+              className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-white/50"
             >
               {t}
             </span>
           ))}
           {project.tech.length > 4 && (
-            <span className="px-2.5 py-1 rounded-full bg-white/5 border border-white/8 text-[10px] font-mono text-white/30">
+            <span className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-white/30">
               +{project.tech.length - 4}
             </span>
           )}

@@ -20,19 +20,19 @@ export default function ProjectsPage() {
     <main className="min-h-screen pt-28 pb-20 px-4 md:px-10 xl:px-16 relative overflow-hidden select-none font-sans">
 
       {/* ── Ambient background glows ── */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-indigo-500/8 rounded-full blur-[180px] pointer-events-none -z-10" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-violet-500/6 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-zinc-400/[0.07] rounded-full blur-[180px] pointer-events-none -z-10" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-zinc-600/[0.08] rounded-full blur-[140px] pointer-events-none -z-10" />
 
       {/* ── Page header ── */}
-      <div className="text-center max-w-2xl mx-auto mb-14">
+      <div className="text-center max-w-2xl mx-auto mb-16 pt-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/8 bg-white/4 mb-5"
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-gradient-to-b from-white/10 to-white/[0.02] mb-5"
         >
-          <Code2 className="w-3.5 h-3.5 text-indigo-400" />
-          <span className="text-[10px] font-mono tracking-widest text-white/70 uppercase">
+          <Code2 className="w-3.5 h-3.5 text-zinc-300" />
+          <span className="type-caption text-zinc-300">
             Selected Works
           </span>
         </motion.div>
@@ -41,7 +41,7 @@ export default function ProjectsPage() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.05 }}
-          className="text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase mb-4"
+          className="type-display uppercase mb-4 text-gradient-white"
         >
           Project Archive
         </motion.h1>
@@ -50,7 +50,7 @@ export default function ProjectsPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-sm md:text-base text-white/50 leading-relaxed"
+          className="type-lead text-zinc-400"
         >
           A curated collection spanning systems programming, interactive UI, and
           applied machine learning.
@@ -115,11 +115,11 @@ function SectionLabel({
 }) {
   return (
     <div className="flex items-center gap-3 mb-6">
-      <div className="flex items-center gap-2 text-white/40">
+      <div className="flex items-center gap-2 text-zinc-400">
         {icon}
-        <span className="text-[10px] font-mono tracking-widest uppercase">{text}</span>
+        <h2 className="type-caption font-mono">{text}</h2>
       </div>
-      <div className="flex-1 h-px bg-white/6" />
+      <div className="flex-1 h-px bg-gradient-to-r from-white/15 to-transparent" />
     </div>
   );
 }

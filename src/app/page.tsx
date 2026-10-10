@@ -11,7 +11,7 @@ export default function Page() {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <main className="h-screen w-full relative overflow-hidden bg-[#030014] grid place-items-center select-none">
+    <main className="h-screen w-full relative overflow-hidden bg-gradient-to-b from-zinc-900 via-zinc-950 to-black grid place-items-center select-none">
       {/* Grayscale background image overlay */}
       <div
         className="absolute inset-0 bg-[url('/bg.png')] bg-cover bg-center opacity-25 pointer-events-none"
@@ -19,7 +19,8 @@ export default function Page() {
       />
 
       {/* Dark vignette overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/85 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-zinc-950/30 to-zinc-900/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.75)_100%)] pointer-events-none" />
 
       {/* Minimal snow effect */}
       <Snow />
