@@ -3,7 +3,7 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Sparkles, BookOpen, ArrowUpRight } from "lucide-react";
+import { Sparkles, BookOpen, ArrowUpRight, Calendar } from "lucide-react";
 import type { Project } from "@/data/projects";
 
 interface FeaturedCardProps {
@@ -84,12 +84,23 @@ function FeaturedCard({
       {/* Text content */}
       <div className="flex-1 p-6 flex flex-col justify-between gap-4">
         <div>
-          <h3 className="type-h2 text-white mb-1.5">
+          <h3 className="type-h2 text-white mb-2">
             {project.title}
           </h3>
-          <p className={`type-caption mb-3 ${cfg.labelColor}`}>
-            {project.subtitle}
-          </p>
+          <div className="flex items-center gap-2 mb-3.5 flex-wrap">
+            <span className={`type-caption ${cfg.labelColor}`}>
+              {project.subtitle}
+            </span>
+            {project.duration && (
+              <>
+                <span className="text-zinc-600 text-xs leading-none">•</span>
+                <span className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400">
+                  <Calendar className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
+                  {project.duration}
+                </span>
+              </>
+            )}
+          </div>
           <p className="type-body-sm text-zinc-400 line-clamp-3">
             {project.shortDescription}
           </p>

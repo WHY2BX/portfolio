@@ -3,7 +3,7 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Calendar } from "lucide-react";
 import type { Project } from "@/data/projects";
 
 interface ProjectCardProps {
@@ -46,16 +46,26 @@ function ProjectCard({ project, onClick, index = 0 }: ProjectCardProps) {
       </div>
 
       {/* Card content */}
-      <div className="p-5 flex-1 flex flex-col gap-1.5">
-        <h3 className="type-h3 text-white">
-          {project.title}
-        </h3>
-        <p className="type-micro text-zinc-400">
-          {project.subtitle}
-        </p>
-        <p className="type-body-sm text-zinc-400 mt-1.5 line-clamp-2">
-          {project.shortDescription}
-        </p>
+      <div className="p-5 flex-1 flex flex-col justify-between">
+        <div>
+          <h3 className="type-h3 text-white">
+            {project.title}
+          </h3>
+          <div className="flex flex-col gap-0.5 mt-1 mb-2.5">
+            <span className="type-micro text-zinc-400">
+              {project.subtitle}
+            </span>
+            {project.duration && (
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-mono text-zinc-500">
+                <Calendar className="w-3 h-3 text-zinc-500 shrink-0" />
+                {project.duration}
+              </span>
+            )}
+          </div>
+          <p className="type-body-sm text-zinc-400 line-clamp-2">
+            {project.shortDescription}
+          </p>
+        </div>
 
         {/* Minimal tech list */}
         <div className="flex flex-wrap gap-1.5 mt-3">

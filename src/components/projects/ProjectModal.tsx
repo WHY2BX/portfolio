@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, Github, ExternalLink, Play } from "lucide-react";
+import { X, Github, ExternalLink, Play, Calendar } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import type { Project } from "@/data/projects";
 
@@ -97,9 +97,20 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <h2 className="type-h1 text-gradient-white mb-2 drop-shadow-lg">
                   {project.title}
                 </h2>
-                <p className="type-caption text-zinc-400 mb-6">
-                  {project.subtitle}
-                </p>
+                <div className="flex items-center gap-2.5 mb-6 flex-wrap">
+                  <span className="type-caption text-zinc-400">
+                    {project.subtitle}
+                  </span>
+                  {project.duration && (
+                    <>
+                      <span className="text-zinc-600 text-xs leading-none">•</span>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400">
+                        <Calendar className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
+                        {project.duration}
+                      </span>
+                    </>
+                  )}
+                </div>
 
                 {/* Tech badges */}
                 <div className="flex flex-wrap gap-2 mb-6">

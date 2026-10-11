@@ -6,6 +6,7 @@ export type Project = {
   id: string;
   title: string;
   subtitle: string;
+  duration?: string;
   description: string;
   /** Short blurb shown on the card thumbnail (max ~120 chars recommended) */
   shortDescription: string;
@@ -32,7 +33,8 @@ export const projects: Project[] = [
   {
     id: "bugtopia",
     title: "Bugtopia",
-    subtitle: "Thesis Project (March 2025 - April 2026)",
+    subtitle: "Thesis Project",
+    duration: "March 2025 - April 2026",
     shortDescription:
       "Time-management simulation game-base learning where players act as doctors diagnosing and treating venomous insect bites.",
     description:
@@ -51,7 +53,8 @@ export const projects: Project[] = [
   {
     id: "pocket-money",
     title: "Pocket-Money",
-    subtitle: "Vibe Coding (September 2026 - Now)",
+    subtitle: "Vibe Coding",
+    duration: "September 2026 - Now",
     shortDescription:
       "Personal finance management Progressive Web App inspired by 'Make by KBank'.",
     description:
@@ -60,7 +63,7 @@ export const projects: Project[] = [
     showcaseImage: "/cards/magician.png",
     tech: ["React", "Vite", "Express", "Zustand", "Drizzle ORM", "PostgreSQL", "Supabase", "Claude", "Gemini"],
     links: {
-      github: "https://github.com/WHY2BX",
+      github: "https://github.com/WHY2BX/pocket-money",
     },
     featured: true
   },
@@ -70,7 +73,8 @@ export const projects: Project[] = [
   {
     id: "dumbthought",
     title: "Dumbthought",
-    subtitle: "Vibe Coding, No longer active (August 2026)",
+    subtitle: "Vibe Coding, No longer active",
+    duration: "August 2026",
     shortDescription:
       "A full-stack, mobile-optimized note-taking app deployed on Vercel.",
     description:
@@ -79,13 +83,14 @@ export const projects: Project[] = [
     showcaseImage: "/cards/wheel.png",
     tech: ["Next.js", "Tailwind CSS", "Supabase", "PostgreSQL", "Claude", "Gemini"],
     links: {
-      github: "https://github.com/WHY2BX",
+      github: "https://github.com/WHY2BX/dumbthought",
     },
   },
   {
     id: "aerocast",
     title: "AeroCast",
-    subtitle: "No longer active (November 2024 - December 2024)",
+    subtitle: "No longer active",
+    duration: "November 2024 - December 2024",
     shortDescription:
       "A global weather web application that implemented real-time weather data retrieval.",
     description: `
@@ -101,13 +106,14 @@ A global weather web application that implemented real-time weather data retriev
     showcaseImage: "/cards/fool.png",
     tech: ["Next.js", "OpenWeather API", "MongoDB", "Tailwind CSS"],
     links: {
-      github: "https://github.com/WHY2BX",
+      github: "https://github.com/WHY2BX/AeroCast",
     },
   },
   {
     id: "heaven-hotel",
     title: "Heaven Hotel",
-    subtitle: "No longer active (September 2024 - October 2024)",
+    subtitle: "No longer active",
+    duration: "September 2024 - October 2024",
     shortDescription:
       "Hotel Reservation Website built with Django and Postgres.",
     description: `
@@ -123,6 +129,29 @@ Hotel Reservation Website. Designed and developed backend functionalities using 
     tech: ["Django", "Bootstrap", "Postgres"],
     links: {
       github: "https://github.com/WHY2BX",
+    },
+  },
+  {
+    id: "Pawgician",
+    title: "Pawgician",
+    subtitle: "No longer active",
+    duration: "November 2024 - December 2024",
+    shortDescription:
+      "A global weather web application that implemented real-time weather data retrieval.",
+    description: `
+A global weather web application that implemented real-time weather data retrieval and historical search tracking. 
+
+**Key Highlights:**
+- **Stack:** Next.js, OpenWeather API, MongoDB
+- **UI:** Designed a responsive UI with Tailwind CSS
+- Real-time weather data retrieval
+- Historical search tracking
+`,
+    image: "/cards/fool.png",
+    showcaseImage: "/cards/fool.png",
+    tech: ["Next.js", "OpenWeather API", "MongoDB", "Tailwind CSS"],
+    links: {
+      github: "https://github.com/WHY2BX/AeroCast",
     },
   },
 ];
