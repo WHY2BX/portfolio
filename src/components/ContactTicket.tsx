@@ -77,7 +77,7 @@ export default function ContactTicket() {
               Voucher Type
             </span>
             <h2 className="type-h2 uppercase text-gradient-white">
-              Inquiry Pass
+              Contact Pass
             </h2>
           </div>
           <div className="flex flex-col text-right">
@@ -85,7 +85,7 @@ export default function ContactTicket() {
               Issue Date
             </span>
             <span className="text-sm font-mono text-zinc-200 tracking-wider">
-              2026.06.24
+              2003.09.06
             </span>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function ContactTicket() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label className="type-micro font-mono text-zinc-400 block">
-                Passenger Name
+                Your Name
               </label>
               <input
                 type="text"
@@ -122,7 +122,7 @@ export default function ContactTicket() {
 
           <div className="space-y-2">
             <label className="type-micro font-mono text-zinc-400 block">
-              Project Mission
+              Details
             </label>
             <textarea
               rows={4}
