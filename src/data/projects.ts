@@ -51,7 +51,21 @@ export const projects: Project[] = [
     shortDescription:
       "Time-management simulation game-base learning where players act as doctors diagnosing and treating venomous insect bites.",
     description:
-      "A time-management simulation game-base learning where players act as doctors diagnosing and treating venomous insect bites. It develops analytical skills under pressure and significantly improves long-term knowledge retention compared to traditional textbooks. Built with Unreal Engine 5 for game development, SQLite for database management, Figma for UI/UX prototyping, and Lucid Chart for system diagrams.",
+      `
+      ### What is Bugtopia?
+      A time-management simulation game-base learning where players act as doctors diagnosing and treating venomous insect bites.
+      It develops analytical skills under pressure and significantly improves long-term knowledge retention compared to traditional textbooks. Built with Unreal Engine 5 for game development,
+      SQLite for database management, Figma for UI/UX prototyping, and Lucid Chart for system diagrams.
+      
+      ### Why We made Bugtopia?
+      Incidents involving venomous insects represent a significant public health concern, frequently resulting in injury and, in severe instances, mortality. Envenomation typically occurs through direct stings, bites, or cutaneous contact. While these risks are prevalent, they are preventable through enhanced public literacy regarding symptoms and emergency first aid procedures.
+
+      ### Advisor
+      [Asst. Prof. Dr.Sirion Vittayakorn](https://www.it.kmitl.ac.th/~sirion/)
+
+      ### Contributor
+      Sirimongkol Thongkhwanjai
+      `,
     image: "/project-image/bugtopia/bugtopia-logo.png",
     showcaseImage: "/project-image/bugtopia/bugtopia-logo.png",
     tech: ["Unreal Engine 5", "SQLite", "Figma", "Lucid Chart"],
@@ -71,7 +85,13 @@ export const projects: Project[] = [
     shortDescription:
       "Personal finance management Progressive Web App inspired by 'Make by KBank'.",
     description:
-      "Personal finance management Progressive Web App inspired by 'Make by KBank' to solve daily budgeting and financial planning challenges. Envelope-style budget management featuring drag-and-drop fund transfers, recurring bill tracking, and an analytics dashboard with a Glassmorphism UI. Leveraged AI-assisted development workflows using Claude and Gemini as primary coding and architectural assistants. Built with React + Vite (client) and Express (server), using Zustand for global state management, and Drizzle ORM with PostgreSQL (hosted on Supabase) for data persistence and authentication.",
+      `
+      ### What is Pocket-money?
+      Personal finance management Progressive Web App inspired by 'Make by KBank' to solve daily budgeting and financial planning challenges.
+      Envelope-style budget management featuring drag-and-drop fund transfers, recurring bill tracking, and an analytics dashboard with a Glassmorphism UI.
+      Leveraged AI-assisted development workflows using Claude and Gemini as primary coding and architectural assistants.
+      Built with React + Vite (client) and Express (server), using Zustand for global state management, and Drizzle ORM with PostgreSQL (hosted on Supabase) for data persistence and authentication.
+      `,
     image: "/cards/magician.png",
     showcaseImage: "/cards/magician.png",
     tech: ["React", "Vite", "Express", "Zustand", "Drizzle ORM", "PostgreSQL", "Supabase", "Claude", "Gemini"],
@@ -85,34 +105,71 @@ export const projects: Project[] = [
 
   {
     id: "dumbthought",
-    title: "Dumbthought",
+    title: "dumbthought",
     subtitle: "Vibe Coding, No longer active",
     duration: "August 2026",
     shortDescription:
       "A full-stack, mobile-optimized note-taking app deployed on Vercel.",
     description: `
 ### What is dumpthought?
-A full-stack, mobile-optimized note-taking app deployed on Vercel. ...
+A full-stack, mobile-optimized note-taking app deployed on Vercel.
+Leveraged AI-assisted development workflows using Claude and Gemini as primary coding.
+Built with Next.js and Tailwind CSS for frontend, and powered by Supabase (PostgreSQL) for backend authentication and data storage.
 
-![หน้าจอหลักของแอป](/project-image/dumbthought/home.png)
+![Login page](/project-image/dumbthought/dumbthought-login.png)
 
 ### Why I Create this?
-I love taking notes on IOS Note app, How ever ever
+I love taking notes on IOS Note app, How ever it always been a pile of notes that so hard to search for the one I looking for and I not used to IOS text formatting, So I created this app to solve that problem. Which can categorized notes in to a folder with Markdown text formatting that really suits to my GEN-Z style ✨.
 
-![เทียบกับ iOS Notes](/project-image/dumbthought/compare.png)
+![Compare to IOS note](/project-image/dumbthought/dumbthought-ios-compare-1.png)
+
+### Features
+- **Authentication**: User can register, login or logout via password or Google.
+- **Notes**: User can create, read, update, delete notes.
+- **Pins**: User can pin up to 3 notes on the top of the page.
+- **Markdown Text**: Use Markdown langauge for formatting notes, Similar to Discord.
+- **Categorize**: User can create, read, update, delete category and also can assign category to notes.
+- **Overview**: User can see how much notes in each category.
       `,
     image: "/project-image/dumbthought/dumbthought-logo.jpg",
     showcaseImage: "/project-image/dumbthought/dumbthought-logo.jpg",
     gallery: [
-      { src: "/project-image/dumbthought/screen-1.png", caption: "Login page" },
-      { src: "/project-image/dumbthought/screen-2.png", caption: "Note editor" },
-      { src: "/project-image/dumbthought/screen-3.png" },
+      { src: "/project-image/dumbthought/dumbthought-all-notes.png", caption: "Main page" },
+      { src: "/project-image/dumbthought/dumbthought-create-note.png", caption: "Create note" },
+      { src: "/project-image/dumbthought/dumbthought-read-note.png", caption: "Read note" },
+      { src: "/project-image/dumbthought/dumbthought-ios-compare-2.png", caption: "Slide to delete" },
+      { src: "/project-image/dumbthought/dumbthought-create-category.png", caption: "Create category" },
+      { src: "/project-image/dumbthought/dumbthought-view-note-in-category.png", caption: "View note in category" },
     ],
     tech: ["Next.js", "Tailwind CSS", "Supabase", "PostgreSQL", "Claude", "Gemini"],
     links: {
       github: "https://github.com/WHY2BX/dumbthought",
     },
   },
+  ,
+  // {
+  //     id: "Pawgician",
+  //     title: "Pawgician",
+  //     subtitle: "No longer active",
+  //     duration: "November 2024 - December 2024",
+  //     shortDescription:
+  //       "A global weather web application that implemented real-time weather data retrieval.",
+  //     description: `
+  // A global weather web application that implemented real-time weather data retrieval and historical search tracking. 
+
+  // **Key Highlights:**
+  // - **Stack:** Next.js, OpenWeather API, MongoDB
+  // - **UI:** Designed a responsive UI with Tailwind CSS
+  // - Real-time weather data retrieval
+  // - Historical search tracking
+  // `,
+  //     image: "/cards/fool.png",
+  //     showcaseImage: "/cards/fool.png",
+  //     tech: ["Next.js", "OpenWeather API", "MongoDB", "Tailwind CSS"],
+  //     links: {
+  //       github: "https://github.com/WHY2BX/AeroCast",
+  //     },
+  //   }
   ,
   {
     id: "aerocast",
@@ -122,16 +179,16 @@ I love taking notes on IOS Note app, How ever ever
     shortDescription:
       "A global weather web application that implemented real-time weather data retrieval.",
     description: `
-A global weather web application that implemented real-time weather data retrieval and historical search tracking. 
+A global weather web application that implemented real-time weather data retrieval and historical search tracking. This project is a part of Client-side Web Development course at IT, KMITL
 
 **Key Highlights:**
 - **Stack:** Next.js, OpenWeather API, MongoDB
 - **UI:** Designed a responsive UI with Tailwind CSS
 - Real-time weather data retrieval
-- Historical search tracking
+- Favourite place, easy to find.
 `,
-    image: "/cards/fool.png",
-    showcaseImage: "/cards/fool.png",
+    image: "/project-image/aerocast/aerocast-logo.png",
+    showcaseImage: "/project-image/aerocast/aerocast-logo.png",
     tech: ["Next.js", "OpenWeather API", "MongoDB", "Tailwind CSS"],
     links: {
       github: "https://github.com/WHY2BX/AeroCast",
@@ -145,43 +202,24 @@ A global weather web application that implemented real-time weather data retriev
     shortDescription:
       "Hotel Reservation Website built with Django and Postgres.",
     description: `
-Hotel Reservation Website. Designed and developed backend functionalities using Django and styled components with Bootstrap.
+Hotel Reservation Website. Designed and developed backend functionalities using Django and styled components with Bootstrap. This project is a part of Server-side Web Development course at IT, KMITL.
 
 ### Features
-- Hotel room browsing and availability check
-- **Reservation system** managed by Django backend
-- Data persistence with **Postgres**
+- **Authentication**: User can register, login or logout.
+- **Room Details**: User and admin can view room details.
+- **Reservation**: Client can book, view or cancel their reservation, Admin can also view and cancel every reservations.
+- **Search System**: Both Client and Admin can search for the room by name.
+- **Room Management**: Admin can create, read, update and delete room.
+- **Promotions**: Admin can create, update and delete promotions.
 `,
-    image: "/cards/magician.png",
-    showcaseImage: "/cards/magician.png",
+    image: "/project-image/heaven-hotel/heavenhotel-logo.jpg",
+    showcaseImage: "/project-image/heaven-hotel/heavenhotel-logo.jpg",
     tech: ["Django", "Bootstrap", "Postgres"],
     links: {
-      github: "https://github.com/WHY2BX",
+      github: "https://github.com/WHY2BX/heaven-hotel",
     },
   },
-  {
-    id: "Pawgician",
-    title: "Pawgician",
-    subtitle: "No longer active",
-    duration: "November 2024 - December 2024",
-    shortDescription:
-      "A global weather web application that implemented real-time weather data retrieval.",
-    description: `
-A global weather web application that implemented real-time weather data retrieval and historical search tracking. 
-
-**Key Highlights:**
-- **Stack:** Next.js, OpenWeather API, MongoDB
-- **UI:** Designed a responsive UI with Tailwind CSS
-- Real-time weather data retrieval
-- Historical search tracking
-`,
-    image: "/cards/fool.png",
-    showcaseImage: "/cards/fool.png",
-    tech: ["Next.js", "OpenWeather API", "MongoDB", "Tailwind CSS"],
-    links: {
-      github: "https://github.com/WHY2BX/AeroCast",
-    },
-  },
+  ,
 ];
 
 /** Convenience selectors */

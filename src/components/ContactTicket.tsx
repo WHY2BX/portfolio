@@ -134,7 +134,7 @@ export default function ContactTicket() {
             />
           </div>
         </div>
-        <div className="space-y-2">
+        <div className="mt-4">
           <button
             type="submit"
             disabled={status === "loading"}
@@ -157,13 +157,15 @@ export default function ContactTicket() {
       <div className="hidden md:block w-px ticket-perforation opacity-15" />
 
       {/* Right Section: Stub / Info & Submit */}
-      <div className="w-full md:w-[320px] bg-white/[0.005] flex flex-col items-center justify-between p-8 relative ticket-tear-hover group transition-all duration-500">
+      <div className="w-full md:w-[320px] bg-white/[0.005] flex flex-col items-stretch p-6 md:px-8 md:py-10 relative ticket-tear-hover group transition-all duration-500">
         {/* Tear cutouts */}
         <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-[#0c0c0e] border border-white/10 hidden md:block" />
         <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 w-7 h-7 rounded-full bg-[#050506] border border-white/10 hidden md:block" />
 
-        <div className="w-full flex flex-col items-center gap-6 h-full justify-center">
-          <DiscordCard />
+        <div className="w-full flex-1 flex flex-col items-center gap-4">
+          <div className="w-full flex-1 flex">
+            <DiscordCard />
+          </div>
 
           {/* Form Status Messages */}
           {status === "success" && (
