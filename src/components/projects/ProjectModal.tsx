@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { X, Github, ExternalLink, Play, Calendar } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-import type { Project } from "@/data/projects";
+import type { Project, ProjectImage } from "@/data/projects";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -21,8 +21,25 @@ function getBadgeClass(tech: string): string {
     : "bg-white/5 text-zinc-300 border-white/10";
 }
 
+/** Strips common leading indentation from multi-line template literals */
+function cleanMarkdown(content: string): string {
+  const lines = content.split("\n");
+  const minIndent = lines
+    .filter((line) => line.trim().length > 0)
+    .reduce((min, line) => {
+      const match = line.match(/^(\s*)/);
+      return Math.min(min, match ? match[1].length : 0);
+    }, Infinity);
+
+  if (minIndent > 0 && minIndent !== Infinity) {
+    return lines.map((line) => (line.trim().length > 0 ? line.slice(minIndent) : "")).join("\n").trim();
+  }
+  return content.trim();
+}
+
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
+  const [lightbox, setLightbox] = useState<ProjectImage | null>(null);
 
   useEffect(() => {
     if (project) {
@@ -30,16 +47,21 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       setTimeout(() => modalRef.current?.focus(), 10);
     } else {
       document.body.style.overflow = "unset";
+      setLightbox(null);
     }
     return () => { document.body.style.overflow = "unset"; };
   }, [project]);
 
-  // Close on Escape key
+  // Close on Escape key (closes the lightbox first if it's open)
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (lightbox) setLightbox(null);
+      else onClose();
+    };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [onClose]);
+  }, [onClose, lightbox]);
 
   return (
     <AnimatePresence>
@@ -140,11 +162,71 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                       h2: ({ node, ...props }) => <h3 className="type-h3 text-white mt-7 mb-3 first:mt-0" {...props} />,
                       h3: ({ node, ...props }) => <h3 className="type-h3 text-zinc-100 mt-6 mb-3 first:mt-0" {...props} />,
                       h4: ({ node, ...props }) => <h4 className="type-h4 text-zinc-200 mt-5 mb-2 first:mt-0" {...props} />,
+                      code: ({ node, ...props }) => (
+                        <code className="px-1.5 py-0.5 rounded-md bg-white/10 text-zinc-200 font-mono text-xs" {...props} />
+                      ),
+                      blockquote: ({ node, ...props }) => (
+                        <blockquote className="border-l-2 border-white/20 pl-4 my-4 italic text-zinc-400" {...props} />
+                      ),
+                      // Inline images: ![caption](/path/to/image.png)
+                      // Uses <span> (not <figure>) because markdown wraps images in <p>
+                      img: ({ node, src, alt }) => {
+                        if (typeof src !== "string" || !src) return null;
+                        return (
+                          <span className="block my-6">
+                            <button
+                              type="button"
+                              onClick={() => setLightbox({ src, caption: alt })}
+                              className="group block w-full overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 cursor-zoom-in"
+                            >
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img
+                                src={src}
+                                alt={alt ?? ""}
+                                loading="lazy"
+                                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                              />
+                            </button>
+                            {alt && (
+                              <span className="block mt-2 text-center text-xs text-zinc-500">{alt}</span>
+                            )}
+                          </span>
+                        );
+                      },
                     }}
                   >
-                    {project.description}
+                    {cleanMarkdown(project.description)}
                   </ReactMarkdown>
                 </div>
+
+                {/* Gallery */}
+                {project.gallery && project.gallery.length > 0 && (
+                  <div
+                    className={`grid gap-3 mb-8 ${project.gallery.length === 1 ? "grid-cols-1" : "grid-cols-2"}`}
+                  >
+                    {project.gallery.map((img, i) => (
+                      <figure key={img.src + i} className="flex flex-col">
+                        <button
+                          type="button"
+                          onClick={() => setLightbox(img)}
+                          className="group relative aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-zinc-900 cursor-zoom-in"
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={img.src}
+                            alt={img.caption ?? `${project.title} image ${i + 1}`}
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                          <span className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                        </button>
+                        {img.caption && (
+                          <figcaption className="mt-1.5 text-xs text-zinc-500 line-clamp-2">{img.caption}</figcaption>
+                        )}
+                      </figure>
+                    ))}
+                  </div>
+                )}
 
                 {/* Action links */}
                 <div className="flex flex-wrap gap-3">
@@ -196,6 +278,41 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
             </motion.div>
           </div>
+
+          {/* Lightbox */}
+          <AnimatePresence>
+            {lightbox && (
+              <motion.div
+                key="lightbox"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onClick={() => setLightbox(null)}
+                className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-3 bg-black/90 p-4 sm:p-10 cursor-zoom-out"
+              >
+                <button
+                  onClick={() => setLightbox(null)}
+                  aria-label="Close image"
+                  className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-white/70 hover:text-white transition-all"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+                <motion.img
+                  src={lightbox.src}
+                  alt={lightbox.caption ?? ""}
+                  initial={{ scale: 0.95 }}
+                  animate={{ scale: 1 }}
+                  exit={{ scale: 0.95 }}
+                  transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                  className="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl"
+                />
+                {lightbox.caption && (
+                  <p className="text-sm text-zinc-400 text-center max-w-2xl">{lightbox.caption}</p>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </>
       )}
     </AnimatePresence>

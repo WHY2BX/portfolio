@@ -15,10 +15,14 @@
   --ink-4: #27272a;
   --ink-5: #3f3f46;
 
-  --text-1: #fafafa;   /* primary   – headings */
-  --text-2: #d4d4d8;   /* secondary – emphasis */
-  --text-3: #a1a1aa;   /* body */
-  --text-4: #71717a;   /* meta / captions */
+  --text-1: #fafafa;
+  /* primary   – headings */
+  --text-2: #d4d4d8;
+  /* secondary – emphasis */
+  --text-3: #a1a1aa;
+  /* body */
+  --text-4: #71717a;
+  /* meta / captions */
 
   --grad-page:
     radial-gradient(ellipse 90% 55% at 50% -10%, rgba(82, 82, 91, 0.35) 0%, transparent 60%),
@@ -531,10 +535,10 @@
  *   type-micro   → smallest meta labels (uppercase)
  * ===================================================================== */
 @utility type-display {
-  font-size: clamp(2.5rem, 1.5rem + 3.4vw, 4.5rem);
-  line-height: 1.02;
+  font-size: clamp(1.875rem, 1.25rem + 1.8vw, 3rem);
+  line-height: 1.08;
   font-weight: 800;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
 }
 
 @utility type-h1 {

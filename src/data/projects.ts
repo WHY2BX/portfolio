@@ -2,11 +2,22 @@
 //  PROJECT DATA — Edit this file to add, remove, or update projects.
 // =============================================================================
 
+export type ProjectImage = {
+  /** Path inside /public (e.g. "/project-image/foo/1.png") or a full URL */
+  src: string;
+  /** Optional caption shown under the image */
+  caption?: string;
+};
+
 export type Project = {
   id: string;
   title: string;
   subtitle: string;
   duration?: string;
+  /**
+   * Markdown. Inline images are supported:
+   *   ![Caption text](/project-image/foo/screenshot.png)
+   */
   description: string;
   /** Short blurb shown on the card thumbnail (max ~120 chars recommended) */
   shortDescription: string;
@@ -14,6 +25,8 @@ export type Project = {
   image: string;
   /** Larger image or GIF shown inside the modal */
   showcaseImage?: string;
+  /** Extra images shown as a grid below the description */
+  gallery?: ProjectImage[];
   tech: string[];
   /** Mark ONE project as the pinned/featured hero */
   featured?: boolean;
@@ -39,8 +52,8 @@ export const projects: Project[] = [
       "Time-management simulation game-base learning where players act as doctors diagnosing and treating venomous insect bites.",
     description:
       "A time-management simulation game-base learning where players act as doctors diagnosing and treating venomous insect bites. It develops analytical skills under pressure and significantly improves long-term knowledge retention compared to traditional textbooks. Built with Unreal Engine 5 for game development, SQLite for database management, Figma for UI/UX prototyping, and Lucid Chart for system diagrams.",
-    image: "/cards/fool.png",
-    showcaseImage: "/cards/fool.png",
+    image: "/project-image/bugtopia/bugtopia-logo.png",
+    showcaseImage: "/project-image/bugtopia/bugtopia-logo.png",
     tech: ["Unreal Engine 5", "SQLite", "Figma", "Lucid Chart"],
     featured: false,
     thesis: true,
@@ -77,15 +90,30 @@ export const projects: Project[] = [
     duration: "August 2026",
     shortDescription:
       "A full-stack, mobile-optimized note-taking app deployed on Vercel.",
-    description:
-      "A full-stack, mobile-optimized note-taking app deployed on Vercel. Leveraged AI-assisted development workflows using Claude and Gemini as primary coding. Built with Next.js and Tailwind CSS for frontend, and powered by Supabase (PostgreSQL) for backend authentication and data storage.",
-    image: "/cards/wheel.png",
-    showcaseImage: "/cards/wheel.png",
+    description: `
+### What is dumpthought?
+A full-stack, mobile-optimized note-taking app deployed on Vercel. ...
+
+![หน้าจอหลักของแอป](/project-image/dumbthought/home.png)
+
+### Why I Create this?
+I love taking notes on IOS Note app, How ever ever
+
+![เทียบกับ iOS Notes](/project-image/dumbthought/compare.png)
+      `,
+    image: "/project-image/dumbthought/dumbthought-logo.jpg",
+    showcaseImage: "/project-image/dumbthought/dumbthought-logo.jpg",
+    gallery: [
+      { src: "/project-image/dumbthought/screen-1.png", caption: "Login page" },
+      { src: "/project-image/dumbthought/screen-2.png", caption: "Note editor" },
+      { src: "/project-image/dumbthought/screen-3.png" },
+    ],
     tech: ["Next.js", "Tailwind CSS", "Supabase", "PostgreSQL", "Claude", "Gemini"],
     links: {
       github: "https://github.com/WHY2BX/dumbthought",
     },
   },
+  ,
   {
     id: "aerocast",
     title: "AeroCast",

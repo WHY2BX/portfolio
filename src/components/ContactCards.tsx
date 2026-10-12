@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MessageSquare, Clock } from "lucide-react";
+import { Mail, MessageSquare, Github } from "lucide-react";
 
 const contacts = [
   {
@@ -16,10 +16,10 @@ const contacts = [
     href: "https://discord.com",
   },
   {
-    icon: Clock,
-    label: "Response Time",
-    value: "Under 24 Hours",
-    href: null,
+    icon: Github,
+    label: "Github",
+    value: "WHY2BX",
+    href: "https://github.com/WHY2BX",
   },
 ];
 
@@ -31,7 +31,7 @@ export default function ContactCards() {
           <div className="glass-panel p-6 rounded-2xl flex items-center gap-5 group cursor-pointer hover:border-white/20 transition-all duration-300 relative overflow-hidden">
             {/* Ambient inner glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
+
             <div className="w-11 h-11 rounded-xl bg-gradient-to-b from-white/12 to-white/[0.02] border border-white/10 flex items-center justify-center text-zinc-300 group-hover:from-white group-hover:to-zinc-300 group-hover:text-black group-hover:border-white transition-all duration-300 relative z-10 shrink-0">
               <Icon className="w-5 h-5" />
             </div>

@@ -30,7 +30,7 @@ export default function ContactTicket() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !message) return;
-    
+
     setStatus("loading");
     const nameParts = name.trim().split(" ");
     const firstName = nameParts[0] || "";
@@ -134,7 +134,24 @@ export default function ContactTicket() {
             />
           </div>
         </div>
+        <div className="space-y-2">
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="w-full btn-primary rounded-xl py-3 type-caption flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+          >
+            {status === "loading" ? (
+              <span className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+            ) : (
+              <>
+                <Send className="w-3.5 h-3.5" />
+                <span>Submit Ticket</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
+
 
       {/* Vertical Perforation */}
       <div className="hidden md:block w-px ticket-perforation opacity-15" />
@@ -162,20 +179,7 @@ export default function ContactTicket() {
             </div>
           )}
 
-          <button
-            type="submit"
-            disabled={status === "loading"}
-            className="w-full btn-primary rounded-xl py-3 type-caption flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
-          >
-            {status === "loading" ? (
-              <span className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
-            ) : (
-              <>
-                <Send className="w-3.5 h-3.5" />
-                <span>Submit Ticket</span>
-              </>
-            )}
-          </button>
+
         </div>
       </div>
     </form>
