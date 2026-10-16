@@ -193,7 +193,7 @@ export default function AboutPage() {
               </h2>
             </div>
             <p className="type-body text-zinc-400 relative z-10">
-              A highly motivated recent graduate from King Mongkut's Institute of Technology Ladkrabang with a strong academic record. Proven ability to quickly learn new concepts and adapt to diverse environments. Seeking an entry-level opportunity to leverage strong analytical skills, attention to detail, and a dedicated work ethic to contribute to organizational success.
+              A highly motivated recent graduate from King Mongkut&apos;s Institute of Technology Ladkrabang with a strong academic record. Proven ability to quickly learn new concepts and adapt to diverse environments. Seeking an entry-level opportunity to leverage strong analytical skills, attention to detail, and a dedicated work ethic to contribute to organizational success.
             </p>
           </motion.div>
 
@@ -217,7 +217,7 @@ export default function AboutPage() {
             <div className="space-y-4 relative z-10">
               <div>
                 <h3 className="type-h3 text-white group-hover:text-zinc-200 transition-colors">
-                  King Mongkut's Institute of Technology Ladkrabang (KMITL)
+                  King Mongkut&apos;s Institute of Technology Ladkrabang (KMITL)
                 </h3>
                 <div className="flex justify-between items-center mt-2">
                   <p className="type-body-sm text-zinc-400">Bachelor of Science (IT)</p>

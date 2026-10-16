@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, Calendar, ShieldCheck, MapPin } from "lucide-react";
+import { Briefcase, Calendar, ShieldCheck } from "lucide-react";
 import Footer from "@/components/Footer";
 
 type Experience = {

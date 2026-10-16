@@ -147,7 +147,6 @@ I created this website to showcase my skills, my experience. Hope this make you 
 *P.S. I am not just interested in Developer roles; I am also interested in many other areas, such as Game Designer, Business Analyst, System Analyst, or even Project Manager positions.*
 
 
-
 ### Features
 - **AESTHETIC UI/UX**: I care about how the application looks and feels. I spent a lot of time designing and researcing the UI to be visually appealing and user-friendly. AND MAKE IT REALLY IMPRESSIVE *COOLLLLLLLL!!*
 - **FLIPABLE ANIMATED CARDS**: I spent a lot of time designing and researcing how to make the cards look really cool, yk what? I *REALLY* LOVE IT!
@@ -205,7 +204,6 @@ I love taking notes on IOS Note app, How ever it always been a pile of notes tha
       github: "https://github.com/WHY2BX/dumbthought",
     },
   },
-  ,
   {
     id: "Pawgician",
     title: "Pawgician",
@@ -246,8 +244,7 @@ I love taking notes on IOS Note app, How ever it always been a pile of notes tha
     links: {
       demo: "https://www.youtube.com/watch?v=lFspm9__13g",
     },
-  }
-  ,
+  },
   {
     id: "aerocast",
     title: "AeroCast",
@@ -296,7 +293,6 @@ Hotel Reservation Website. Designed and developed backend functionalities using 
       github: "https://github.com/WHY2BX/heaven-hotel",
     },
   },
-  ,
 ];
 
 /** Convenience selectors */
