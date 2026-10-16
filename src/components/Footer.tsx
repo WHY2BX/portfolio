@@ -15,7 +15,7 @@ export default function Footer() {
           SUPITCHA WIS PORTFOLIO
         </div>
         <div className="type-body-sm text-zinc-500">
-          © 2024 SUPITCHA WIS Portfolio. All rights reserved.
+          © 2026 SUPITCHA WIS Portfolio. All rights reserved.
         </div>
         <div className="flex gap-8">
           {socialLinks.map(({ label, href }) => (

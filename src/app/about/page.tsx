@@ -265,16 +265,21 @@ export default function AboutPage() {
               <div className="hidden md:block tree-connector-v branch-connector-left" />
               <div className="hidden md:block tree-connector-v branch-connector-right" />
               {row1Branches.map((branch, i) => (
-                <BranchCard key={branch.label} branch={branch} animIndex={i + 3} />
+                <div key={branch.label} className="flex flex-col">
+                  <BranchCard branch={branch} animIndex={i + 3} />
+                  {/* Tail line: grows so shorter cards still reach the bottom bar */}
+                  <div className="hidden md:block tree-connector-v branch-tail" />
+                </div>
               ))}
             </div>
+            <div className="hidden md:block tree-connector-h bottom-join-bar" />
           </div>
 
           {/* Vertical connector to row 2 */}
           <div className="tree-connector-v mx-auto" style={{ height: 48 }} />
 
           {/* ── ROW 2: Tools (full width) ── */}
-          <div className="relative">
+          <div className="relative skill-row-single">
             {row2Branches.map((branch, i) => (
               <BranchCard key={branch.label} branch={branch} animIndex={i + 5} />
             ))}

@@ -39,13 +39,12 @@ const backData: CardData = {
   subtitle: "缘分, 一期一会",
   badge: "Online",
   label: "Player ID",
-  name: "ACHOO",
+  name: "achoo",
   description:
-    "Valorant Player, Jett main",
+    "",
   info: [
-    { label: "Player", value: "ACHOO #404" },
+    { label: "Player", value: "achoo #404" },
     { label: "Server", value: "Asia / SEA" },
-    { label: "Rank", value: "Diamond I" },
   ],
 };
 

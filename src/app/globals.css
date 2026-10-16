@@ -348,8 +348,8 @@
   .tree-connector-v {
     width: 1px;
     background: linear-gradient(to bottom,
-        rgba(255, 255, 255, 0.12),
-        rgba(255, 255, 255, 0.06));
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0.2));
   }
 
   /* Horizontal connector bar */
@@ -357,17 +357,34 @@
     position: absolute;
     top: 0;
     height: 1px;
-    background: linear-gradient(to right,
-        rgba(255, 255, 255, 0.04),
-        rgba(255, 255, 255, 0.12),
-        rgba(255, 255, 255, 0.12),
-        rgba(255, 255, 255, 0.04));
+    background: rgba(255, 255, 255, 0.3);
     z-index: 1;
   }
 
+  /* Column centers of a 2-col grid with a 48px gap = 25% - 12px from each edge */
   .top-row-bar {
-    left: 25%;
-    right: 25%;
+    left: calc(25% - 12px);
+    right: calc(25% - 12px);
+  }
+
+  /* Bottom bar joining the tails of a 2-col row back to the center */
+  .bottom-join-bar {
+    top: auto;
+    bottom: 0;
+    left: calc(25% - 12px);
+    right: calc(25% - 12px);
+  }
+
+  /* Tail line under a card that stretches to the bottom of the row */
+  .branch-tail {
+    flex: 1 1 auto;
+    min-height: 28px;
+    align-self: center;
+  }
+
+  /* Single-card row: line connects directly, so no top gap */
+  .skill-row-single .skill-branch-card {
+    margin-top: 0;
   }
 
   .bottom-row-bar {
@@ -379,7 +396,7 @@
   .branch-connector-left {
     position: absolute;
     top: 0;
-    left: 25%;
+    left: calc(25% - 12px);
     height: 28px;
     z-index: 1;
   }
@@ -387,7 +404,7 @@
   .branch-connector-right {
     position: absolute;
     top: 0;
-    right: 25%;
+    right: calc(25% - 12px);
     height: 28px;
     z-index: 1;
     margin-left: auto;
@@ -429,7 +446,7 @@
   /* Branch card with corner accents */
   .skill-branch-card {
     background: rgba(255, 255, 255, 0.015);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 16px;
     padding: 28px 20px;
     position: relative;
@@ -441,8 +458,8 @@
 
   .skill-branch-card:hover {
     background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 40px rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.24);
+    box-shadow: 0 8px 40px rgba(255, 255, 255, 0.04);
   }
 
   /* Decorative corner brackets */
@@ -450,7 +467,7 @@
     position: absolute;
     width: 16px;
     height: 16px;
-    border-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.45);
     pointer-events: none;
   }
 

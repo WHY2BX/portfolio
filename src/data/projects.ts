@@ -56,9 +56,15 @@ export const projects: Project[] = [
       A time-management simulation game-base learning where players act as doctors diagnosing and treating venomous insect bites.
       It develops analytical skills under pressure and significantly improves long-term knowledge retention compared to traditional textbooks. Built with Unreal Engine 5 for game development,
       SQLite for database management, Figma for UI/UX prototyping, and Lucid Chart for system diagrams.
-      
+
       ### Why We made Bugtopia?
       Incidents involving venomous insects represent a significant public health concern, frequently resulting in injury and, in severe instances, mortality. Envenomation typically occurs through direct stings, bites, or cutaneous contact. While these risks are prevalent, they are preventable through enhanced public literacy regarding symptoms and emergency first aid procedures.
+
+      ### What did I do in this project?
+      - Contributed to game's overall system design in Unreal Engine 5 to create the core gameplay mechanics, including the diagnosis system, time-management system, including the game loop, progression system, and difficulty balancing.
+      - Designed the user interface (UI) and user experience (UX) using Figma to create a user-friendly and visually appealing interface.
+      - Implemented C++ code (Vibe Coding) for connecting to relational database schema to collect insect data and track player progress using SQLite.
+      - Analyzed game design patterns and user engagement metrics to iterate on gameplay mechanics and improve the player experience.
 
       ### Advisor
       [Asst. Prof. Dr.Sirion Vittayakorn](https://www.it.kmitl.ac.th/~sirion/)
@@ -78,22 +84,43 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "pocket-money",
-    title: "Pocket-Money",
-    subtitle: "Vibe Coding",
+    id: "Spendid",
+    title: "Spendid",
+    subtitle: "Vibe Coding, Under Development",
     duration: "September 2026 - Now",
     shortDescription:
       "Personal finance management Progressive Web App inspired by 'Make by KBank'.",
     description:
       `
-      ### What is Pocket-money?
+      ### What is Spendid?
       Personal finance management Progressive Web App inspired by 'Make by KBank' to solve daily budgeting and financial planning challenges.
       Envelope-style budget management featuring drag-and-drop fund transfers, recurring bill tracking, and an analytics dashboard with a Glassmorphism UI.
       Leveraged AI-assisted development workflows using Claude and Gemini as primary coding and architectural assistants.
       Built with React + Vite (client) and Express (server), using Zustand for global state management, and Drizzle ORM with PostgreSQL (hosted on Supabase) for data persistence and authentication.
+
+      ### Why I made this?
+      As someone passionate about financial planning and managing income/expenses, I actively used Kasikornbank's MAKE application.
+      However, finding that a single app couldn't cover all my specific needs, I extracted its core features to develop my own customized financial application.
+      
+      ### Features
+      - **Pockets**: Dividing and allocating money into specific categories.
+      - **Drag and Drop**: Intuitive system for transferring funds between pockets.
+      - **Recurring Bills**: Auto-populate monthly expenses with due date tracking
+      - **Customizable categories**: Customizable categories for individual pockets.
+      - **Graphical visualization**: Summarizing income and expenses.
+
+      ### Development Approach (Vibe Coding)
+      In this project, I want to show my real-world problem-solving skills, how I identify problems, design solutions, and use AI to assist me in building a product.
+      - Started by drafting requirements based on personal pain points, translating them into specific application features to ensure practical problem-solving.
+      - Leveraged Gemini to structure these requirements and suggest valuable feature additions.
+      - Utilized both Claude and Gemini to generate the application codebase and debug errors.
+
+      ### Future Development plans:
+      - Once the system fully meets the requirements and I am satisfied with the UX/UI, the application will be deployed via Vercel.
+      - Plan to continuously develop new features by gathering user feedback and identifying the pain points of people around me.
       `,
-    image: "/cards/magician.png",
-    showcaseImage: "/cards/magician.png",
+    image: "/project-image/spendid/spendid-icon.jpg",
+    showcaseImage: "/project-image/spendid/spendid-icon.jpg",
     tech: ["React", "Vite", "Express", "Zustand", "Drizzle ORM", "PostgreSQL", "Supabase", "Claude", "Gemini"],
     links: {
       github: "https://github.com/WHY2BX/pocket-money",
@@ -102,6 +129,38 @@ export const projects: Project[] = [
   },
 
   // ─── GRID PROJECTS ───────
+
+  {
+    id: "Portfolio",
+    title: "THIS WEBSITE (Portfolio)",
+    subtitle: "Vibe Coding, Still update",
+    duration: "September 2026 - Now",
+    shortDescription:
+      "My portfolio website that shows how COOL i am 😎✨",
+    description: `
+### Who am I and Why I Create this?
+Greetings! I'm Bambam (or by my stage name 'achoo'). I think you've already read the *FORMAL* information about me on my About Me page, so this space will let you get to know another side of me—my real personality. I hope it helps you see how well I'd fit in with your company.
+
+I recently graduated with a degree in IT, KMITL and am currently searching for a job 🥺. I do not have an experience on working in Enterprise that much, but I really want to learn and grow as a developer.
+I love seeking solutions to real-world problems and building products that actually solve them, all while enhancing the user experience (since sometimes I'm that user LOL). 
+I created this website to showcase my skills, my experience. Hope this make you had an interested in me (🪷).\n
+*P.S. I am not just interested in Developer roles; I am also interested in many other areas, such as Game Designer, Business Analyst, System Analyst, or even Project Manager positions.*
+
+
+
+### Features
+- **AESTHETIC UI/UX**: I care about how the application looks and feels. I spent a lot of time designing and researcing the UI to be visually appealing and user-friendly. AND MAKE IT REALLY IMPRESSIVE *COOLLLLLLLL!!*
+- **FLIPABLE ANIMATED CARDS**: I spent a lot of time designing and researcing how to make the cards look really cool, yk what? I *REALLY* LOVE IT!
+- **CONTACT ME VIA EMAIL TICKET**: If you interested in me, just click the icon to contact me, I will be happy to hear from you!
+- **DISCORD CARD**: ik it's really unformal way, but I also want to show how I adapted my GEN-Z style to make my portfolio look unique and modern, while still maintaining a professional image for potential employers.
+      `,
+    image: "/project-image/portfolio/achoo.png",
+    showcaseImage: "/project-image/portfolio/achoo.png",
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Claude", "Gemini"],
+    links: {
+      github: "https://github.com/WHY2BX/portfolio",
+    },
+  },
 
   {
     id: "dumbthought",
@@ -147,29 +206,47 @@ I love taking notes on IOS Note app, How ever it always been a pile of notes tha
     },
   },
   ,
-  // {
-  //     id: "Pawgician",
-  //     title: "Pawgician",
-  //     subtitle: "No longer active",
-  //     duration: "November 2024 - December 2024",
-  //     shortDescription:
-  //       "A global weather web application that implemented real-time weather data retrieval.",
-  //     description: `
-  // A global weather web application that implemented real-time weather data retrieval and historical search tracking. 
-
-  // **Key Highlights:**
-  // - **Stack:** Next.js, OpenWeather API, MongoDB
-  // - **UI:** Designed a responsive UI with Tailwind CSS
-  // - Real-time weather data retrieval
-  // - Historical search tracking
-  // `,
-  //     image: "/cards/fool.png",
-  //     showcaseImage: "/cards/fool.png",
-  //     tech: ["Next.js", "OpenWeather API", "MongoDB", "Tailwind CSS"],
-  //     links: {
-  //       github: "https://github.com/WHY2BX/AeroCast",
-  //     },
-  //   }
+  {
+    id: "Pawgician",
+    title: "Pawgician",
+    subtitle: "No longer active",
+    duration: "August 2025",
+    shortDescription:
+      "A Third-Person Shooting multiplayer game in a theme of magician fat cat.",
+    description: `
+  A Third-Person Shooting multiplayer game (2 up to 4 players) in a theme of magician fat cat fighting for magical fish that can make them slim.
+  Participated in **Dakok x AWS GameCraft** event in a name of Anonymous.exe team. Develop by using Unreal Engine 5 and AWS Cloud.
+  
+  ### What I do in this project?
+  - **Game Designer**: I'm being a part of brainstorming session to come up with game ideas and concepts, also plan for **Level Design** and placing block out.
+  - **UX/UI Designer**: I designed a whole UI game with Figma base on team art concept and color CI.
+  ![Level Design](/project-image/pawgician/level-design.png)
+  `,
+    image: "/project-image/pawgician/pawgician-logo.png",
+    showcaseImage: "/project-image/pawgician/pawgician-logo.png",
+    gallery: [
+      { src: "/project-image/pawgician/login-page.png", caption: "Login with Epic Game" },
+      { src: "/project-image/pawgician/maingame.png", caption: "Main game" },
+      { src: "/project-image/pawgician/lobby-4-create-room.png", caption: "Create room" },
+      { src: "/project-image/pawgician/lobby-4-finding-match.png", caption: "Finding match" },
+      { src: "/project-image/pawgician/lobby-4-invite.png", caption: "Invite" },
+      { src: "/project-image/pawgician/leaderboard.png", caption: "Leaderboard" },
+      { src: "/project-image/pawgician/setting-popup.png", caption: "Setting popup" },
+      { src: "/project-image/pawgician/how-to-play.png", caption: "How to play" },
+      { src: "/project-image/pawgician/skin-popup.png", caption: "Skin popup" },
+      { src: "/project-image/pawgician/party-code-popup.png", caption: "Party code popup" },
+      { src: "/project-image/pawgician/error-page.png", caption: "Error page" },
+      { src: "/project-image/pawgician/in-game-score-board.png", caption: "In-game score board" },
+      { src: "/project-image/pawgician/invite-pop-up.png", caption: "Invite pop up" },
+      { src: "/project-image/pawgician/timeout.png", caption: "Time out" },
+      { src: "/project-image/pawgician/ingame-hud.png", caption: "In-game hud" },
+      { src: "/project-image/pawgician/loading-match.png", caption: "Loading match" },
+    ],
+    tech: ["Unreal Engine 5", "AWS Cloud", "Figma"],
+    links: {
+      demo: "https://www.youtube.com/watch?v=lFspm9__13g",
+    },
+  }
   ,
   {
     id: "aerocast",
@@ -179,7 +256,7 @@ I love taking notes on IOS Note app, How ever it always been a pile of notes tha
     shortDescription:
       "A global weather web application that implemented real-time weather data retrieval.",
     description: `
-A global weather web application that implemented real-time weather data retrieval and historical search tracking. This project is a part of Client-side Web Development course at IT, KMITL
+A global weather web application that implemented real-time weather data retrieval and historical search tracking. This project is a part of **Client-side Web Development** course at IT, KMITL
 
 **Key Highlights:**
 - **Stack:** Next.js, OpenWeather API, MongoDB
@@ -202,7 +279,7 @@ A global weather web application that implemented real-time weather data retriev
     shortDescription:
       "Hotel Reservation Website built with Django and Postgres.",
     description: `
-Hotel Reservation Website. Designed and developed backend functionalities using Django and styled components with Bootstrap. This project is a part of Server-side Web Development course at IT, KMITL.
+Hotel Reservation Website. Designed and developed backend functionalities using Django and styled components with Bootstrap. This project is a part of **Server-side Web Development** course at IT, KMITL.
 
 ### Features
 - **Authentication**: User can register, login or logout.
