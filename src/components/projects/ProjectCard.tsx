@@ -35,7 +35,7 @@ function ProjectCard({ project, onClick, index = 0 }: ProjectCardProps) {
           alt={`${project.title} thumbnail`}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 will-change-transform"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
         {/* hover overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

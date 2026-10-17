@@ -64,7 +64,7 @@ function FeaturedCard({
           fill
           priority={index === 0}
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 will-change-transform"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
 

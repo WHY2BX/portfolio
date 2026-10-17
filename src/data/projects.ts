@@ -144,7 +144,7 @@ Greetings! I'm Bambam (or by my stage name 'achoo'). I think you've already read
 I recently graduated with a degree in IT, KMITL and am currently searching for a job 🥺. I do not have an experience on working in Enterprise that much, but I really want to learn and grow as a developer.
 I love seeking solutions to real-world problems and building products that actually solve them, all while enhancing the user experience (since sometimes I'm that user LOL). 
 I created this website to showcase my skills, my experience. Hope this make you had an interested in me (🪷).\n
-*P.S. I am not just interested in Developer roles; I am also interested in many other areas, such as Game Designer, Business Analyst, System Analyst, or even Project Manager positions.*
+*P.S. I am not just interested in Developer roles; I am also interested in many other areas, such as UX/UI Designer, Game Designer, Business Analyst, System Analyst, Project Manager or even IT Recruiter positions.*
 
 
 ### Features

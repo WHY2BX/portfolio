@@ -13,7 +13,7 @@ const contacts = [
     icon: MessageSquare,
     label: "Discord",
     value: "why2bx",
-    href: "https://discord.com",
+    href: "https://discord.com/users/309322195857965057",
   },
   {
     icon: Github,

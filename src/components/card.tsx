@@ -29,7 +29,7 @@ export const frontData: CardData = {
   info: [
     { label: "Passenger", value: "Bambam" },
     { label: "FAC / UNI", value: "IT / KMITL" },
-    { label: "Interested Position", value: "BA / Dev / IT Recruiter" },
+    { label: "Interested Position", value: "BA / Dev / UXUI" },
   ],
 };
 

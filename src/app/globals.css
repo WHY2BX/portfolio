@@ -40,12 +40,18 @@
   body {
     background: var(--grad-page);
     background-color: var(--ink-0);
-    background-attachment: fixed;
     color: var(--text-1);
     font-family: var(--font-sans);
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
+  }
+
+  /* Fixed backgrounds force full-page repaints on mobile — desktop only */
+  @media (min-width: 1024px) {
+    body {
+      background-attachment: fixed;
+    }
   }
 
   ::selection {
@@ -270,23 +276,32 @@
     transform: translateY(0);
   }
 
-  /* Monochrome Background mesh gradients */
+  /* Monochrome Background mesh gradients
+   * No filter: blur() — the radial gradients already fade to transparent,
+   * and huge blur filters are extremely expensive to re-render on mobile GPUs. */
   .bg-blob-1 {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 70%);
-    filter: blur(100px);
     animation: float-blob-1 25s infinite ease-in-out;
   }
 
   .bg-blob-2 {
     background: radial-gradient(circle, rgba(160, 160, 160, 0.03) 0%, rgba(160, 160, 160, 0) 70%);
-    filter: blur(120px);
     animation: float-blob-2 30s infinite ease-in-out;
   }
 
   .bg-blob-3 {
     background: radial-gradient(circle, rgba(240, 240, 240, 0.03) 0%, rgba(240, 240, 240, 0) 70%);
-    filter: blur(110px);
     animation: float-blob-3 20s infinite ease-in-out;
+  }
+
+  /* Freeze the blobs on mobile/tablet and for reduced-motion users */
+  @media (max-width: 1023px), (prefers-reduced-motion: reduce) {
+
+    .bg-blob-1,
+    .bg-blob-2,
+    .bg-blob-3 {
+      animation: none;
+    }
   }
 
   .ticket-perforation {

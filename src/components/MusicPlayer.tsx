@@ -7,7 +7,7 @@ import { Pause, Play, Volume2, VolumeX } from "lucide-react";
 const TRACK = {
   src: "/impromptu.mp3",
   title: "Impromptu",
-  artist: "Unknown Artist",
+  artist: "Karri",
 };
 
 export default function MusicPlayer() {

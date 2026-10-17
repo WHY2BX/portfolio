@@ -19,9 +19,9 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen pt-28 pb-20 px-4 md:px-10 xl:px-16 relative overflow-hidden select-none font-sans">
 
-      {/* ── Ambient background glows ── */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-zinc-400/[0.07] rounded-full blur-[180px] pointer-events-none -z-10" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-zinc-600/[0.08] rounded-full blur-[140px] pointer-events-none -z-10" />
+      {/* ── Ambient background glows (radial gradients — no costly blur filter) ── */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] max-w-[200vw] bg-[radial-gradient(ellipse_at_center,rgba(161,161,170,0.09)_0%,transparent_70%)] pointer-events-none -z-10" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,rgba(82,82,91,0.12)_0%,transparent_70%)] pointer-events-none -z-10" />
 
       {/* ── Page header ── */}
       <div className="text-center max-w-2xl mx-auto mb-16 pt-8">
