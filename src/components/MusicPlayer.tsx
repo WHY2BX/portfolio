@@ -3,13 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import { Pause, Play, Volume2, VolumeX } from "lucide-react";
 
+// Track info shown in the compact mobile player
+const TRACK = {
+  src: "/impromptu.mp3",
+  title: "Impromptu",
+  artist: "Unknown Artist",
+};
+
 export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0); // 0..100
   const [muted, setMuted] = useState(false);
-  const [volume, setVolume] = useState(0.8);     // 0..1
+  const [volume, setVolume] = useState(0.3);     // 0..1
 
   // Right volume panel overlay
   const [showVol, setShowVol] = useState(false);
@@ -113,18 +120,54 @@ export default function MusicPlayer() {
           100% { height: 16px; }
         }
       `}</style>
-      
+
       <audio
         ref={audioRef}
-        src="/impromptu.mp3"
+        src={TRACK.src}
         preload="auto"
         onTimeUpdate={handleTimeUpdate}
       />
 
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+      <div className="fixed bottom-4 lg:bottom-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-sm lg:w-auto lg:max-w-none">
         <div className="relative">
-          {/* MAIN PLAYER */}
-          <div className="w-[520px] h-[52px] rounded-2xl glass-panel shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] px-4 flex items-center gap-4 transition-all duration-300">
+          {/* COMPACT MOBILE PLAYER (< lg) */}
+          <div className="lg:hidden w-full h-14 rounded-2xl glass-panel shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] pl-3 pr-2 flex items-center gap-3">
+            {/* Visualizer */}
+            <div className="shrink-0 w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-end justify-center gap-[3px] pb-2.5">
+              {[
+                { cls: "bg-white", idle: "h-1", anim: "animate-[music-bar_0.8s_infinite_ease-in-out_alternate]", delay: "0s" },
+                { cls: "bg-white/70", idle: "h-2", anim: "animate-[music-bar_0.6s_infinite_ease-in-out_alternate]", delay: "0.2s" },
+                { cls: "bg-white/50", idle: "h-1.5", anim: "animate-[music-bar_0.9s_infinite_ease-in-out_alternate]", delay: "0.1s" },
+              ].map((b, i) => (
+                <span
+                  key={i}
+                  className={`w-[2px] rounded-full transition-all duration-300 ${b.cls} ${isPlaying ? b.anim : b.idle}`}
+                  style={{ animationDelay: b.delay }}
+                />
+              ))}
+            </div>
+
+            {/* Song + artist */}
+            <div className="flex-1 min-w-0 leading-tight">
+              <p className="truncate text-sm font-semibold text-zinc-100">{TRACK.title}</p>
+              <p className="truncate font-mono text-[10px] uppercase tracking-[0.14em] text-zinc-500">
+                {TRACK.artist}
+              </p>
+            </div>
+
+            {/* Play/Pause */}
+            <button
+              id="mobile-music-toggle"
+              onClick={togglePlay}
+              className="shrink-0 w-10 h-10 rounded-full bg-gradient-to-b from-white to-zinc-300 text-black grid place-items-center shadow-[0_4px_12px_rgba(255,255,255,0.12)] active:scale-95 transition-transform duration-200 cursor-pointer"
+              aria-label={isPlaying ? "Pause" : "Play"}
+            >
+              {isPlaying ? <Pause size={16} className="fill-black" /> : <Play size={16} className="fill-black translate-x-[1px]" />}
+            </button>
+          </div>
+
+          {/* MAIN PLAYER (lg and up) */}
+          <div className="hidden lg:flex w-[520px] h-[52px] rounded-2xl glass-panel shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] px-4 items-center gap-4 transition-all duration-300">
             {/* Play/Pause Button */}
             <button
               onClick={togglePlay}
@@ -137,26 +180,22 @@ export default function MusicPlayer() {
             {/* Visualizer Bars */}
             <div className="flex items-end gap-[3px] h-4 w-6 px-1 justify-center">
               <span
-                className={`w-[2px] rounded-full bg-white transition-all duration-300 ${
-                  isPlaying ? "animate-[music-bar_0.8s_infinite_ease-in-out_alternate]" : "h-1"
-                }`}
+                className={`w-[2px] rounded-full bg-white transition-all duration-300 ${isPlaying ? "animate-[music-bar_0.8s_infinite_ease-in-out_alternate]" : "h-1"
+                  }`}
               />
               <span
-                className={`w-[2px] rounded-full bg-white/70 transition-all duration-300 ${
-                  isPlaying ? "animate-[music-bar_0.6s_infinite_ease-in-out_alternate_0.2s]" : "h-2"
-                }`}
+                className={`w-[2px] rounded-full bg-white/70 transition-all duration-300 ${isPlaying ? "animate-[music-bar_0.6s_infinite_ease-in-out_alternate_0.2s]" : "h-2"
+                  }`}
                 style={{ animationDelay: "0.2s" }}
               />
               <span
-                className={`w-[2px] rounded-full bg-white/40 transition-all duration-300 ${
-                  isPlaying ? "animate-[music-bar_0.9s_infinite_ease-in-out_alternate_0.1s]" : "h-1.5"
-                }`}
+                className={`w-[2px] rounded-full bg-white/40 transition-all duration-300 ${isPlaying ? "animate-[music-bar_0.9s_infinite_ease-in-out_alternate_0.1s]" : "h-1.5"
+                  }`}
                 style={{ animationDelay: "0.1s" }}
               />
               <span
-                className={`w-[2px] rounded-full bg-white/60 transition-all duration-300 ${
-                  isPlaying ? "animate-[music-bar_0.7s_infinite_ease-in-out_alternate_0.3s]" : "h-2.5"
-                }`}
+                className={`w-[2px] rounded-full bg-white/60 transition-all duration-300 ${isPlaying ? "animate-[music-bar_0.7s_infinite_ease-in-out_alternate_0.3s]" : "h-2.5"
+                  }`}
                 style={{ animationDelay: "0.3s" }}
               />
             </div>
@@ -202,7 +241,7 @@ export default function MusicPlayer() {
             onBlur={closeVol}
             className={[
               "absolute left-full ml-3 top-1/2 -translate-y-1/2",
-              "w-[130px] h-[52px] rounded-2xl glass-panel shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] px-4 flex items-center justify-center",
+              "w-[130px] h-[52px] rounded-2xl glass-panel shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] px-4 hidden lg:flex items-center justify-center",
               "transition-all duration-300 ease-out",
               showVol ? "opacity-100 translate-x-0 pointer-events-auto" : "opacity-0 translate-x-2 pointer-events-none",
             ].join(" ")}

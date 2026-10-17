@@ -53,7 +53,7 @@ export default function Page() {
       {/* ─── Mobile / tablet view (< lg) ─── */}
       <section
         aria-label="ID badge"
-        className="lg:hidden relative z-10 flex justify-center px-6 pt-20 pb-28"
+        className="lg:hidden relative z-10 min-h-dvh flex items-center justify-center px-6 pt-20 pb-36"
       >
         <MobileBadgeCard />
       </section>

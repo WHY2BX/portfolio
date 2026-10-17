@@ -31,6 +31,8 @@ export default function MobileBadgeCard({ data = frontData }: { data?: CardData 
     >
       {/* 1 · Lanyard strap (clear plastic) */}
       <div className="relative w-12 h-24 -mt-4 rounded-b-md bg-gradient-to-b from-white/[0.03] via-white/10 to-white/15 border-x border-b border-white/15 backdrop-blur-sm shadow-[inset_0_0_12px_rgba(255,255,255,0.06)]">
+        {/* Strap extension — reaches up behind the nav bar regardless of card position */}
+        <div className="absolute bottom-full -left-px -right-px h-[50vh] bg-white/[0.03] border-x border-white/15" />
         {/* Metal snap button */}
         <div className="absolute left-1/2 bottom-6 -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-br from-zinc-200 via-zinc-400 to-zinc-700 border border-white/30 shadow-[0_2px_6px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.8)]">
           <div className="absolute inset-[6px] rounded-full bg-gradient-to-br from-zinc-500 to-zinc-800" />
