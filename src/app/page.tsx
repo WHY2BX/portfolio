@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Card from "@/components/card";
+import MobileBadgeCard from "@/components/MobileBadgeCard";
 import MusicPlayer from "@/components/MusicPlayer";
 import Snow from "@/components/Snow";
 import { RotateCcw } from "lucide-react";
@@ -11,7 +12,7 @@ export default function Page() {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <main className="h-screen w-full relative overflow-hidden bg-gradient-to-b from-zinc-900 via-zinc-950 to-black grid place-items-center select-none">
+    <main className="min-h-dvh lg:h-screen w-full relative overflow-x-hidden lg:overflow-hidden bg-gradient-to-b from-zinc-900 via-zinc-950 to-black select-none">
       {/* Grayscale background image overlay */}
       <div
         className="absolute inset-0 bg-[url('/bg.png')] bg-cover bg-center opacity-25 pointer-events-none"
@@ -25,27 +26,37 @@ export default function Page() {
       {/* Minimal snow effect */}
       <Snow />
 
-      {/* Main card */}
-      <motion.div
-        className="relative z-10"
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <Card isFlipped={isFlipped} />
-      </motion.div>
+      {/* ─── Desktop view (lg and up) ─── */}
+      <div className="hidden lg:grid h-full w-full place-items-center">
+        <motion.div
+          className="relative z-10"
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Card isFlipped={isFlipped} />
+        </motion.div>
 
-      {/* Flip arrow button — bottom left */}
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-        onClick={() => setIsFlipped((prev) => !prev)}
-        className={`flip-arrow-btn ${isFlipped ? "flipped" : ""}`}
-        aria-label="Flip card"
+        {/* Flip arrow button — bottom right */}
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          onClick={() => setIsFlipped((prev) => !prev)}
+          className={`flip-arrow-btn ${isFlipped ? "flipped" : ""}`}
+          aria-label="Flip card"
+        >
+          <RotateCcw className="w-5 h-5" />
+        </motion.button>
+      </div>
+
+      {/* ─── Mobile / tablet view (< lg) ─── */}
+      <section
+        aria-label="ID badge"
+        className="lg:hidden relative z-10 flex justify-center px-6 pt-20 pb-28"
       >
-        <RotateCcw className="w-5 h-5" />
-      </motion.button>
+        <MobileBadgeCard />
+      </section>
 
       <MusicPlayer />
     </main>

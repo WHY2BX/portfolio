@@ -6,7 +6,7 @@ import { Cpu, QrCode, Terminal, Gamepad2 } from "lucide-react";
 /* ───────────────────────────────────────────────────────
  *  Card-face data type + static data
  * ─────────────────────────────────────────────────────── */
-type CardData = {
+export type CardData = {
   icon: React.ElementType;
   title: string;
   subtitle: string;
@@ -17,7 +17,7 @@ type CardData = {
   info: { label: string; value: string }[];
 };
 
-const frontData: CardData = {
+export const frontData: CardData = {
   icon: Terminal,
   title: "Developer",
   subtitle: "Back-end / Full-Stack",
