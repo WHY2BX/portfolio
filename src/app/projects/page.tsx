@@ -14,7 +14,7 @@ export default function ProjectsPage() {
 
   // Stable references — prevents child cards and modal effects from re-running on every render
   const handleSelect = useCallback((p: Project) => setSelected(p), []);
-  const handleClose  = useCallback(() => setSelected(null), []);
+  const handleClose = useCallback(() => setSelected(null), []);
 
   return (
     <main className="min-h-screen pt-28 pb-20 px-4 md:px-10 xl:px-16 relative overflow-hidden select-none font-sans">
@@ -52,8 +52,7 @@ export default function ProjectsPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="type-lead text-zinc-400"
         >
-          A curated collection spanning systems programming, interactive UI, and
-          applied machine learning.
+          A curated collection spanning systems programming and interactive UI.
         </motion.p>
       </div>
 
