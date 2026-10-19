@@ -141,7 +141,7 @@ export const projects: Project[] = [
 ### Who am I and Why I Create this?
 Greetings! I'm Bambam (or by my stage name 'achoo'). I think you've already read the *FORMAL* information about me on my About Me page, so this space will let you get to know another side of me—my real personality. I hope it helps you see how well I'd fit in with your company.
 
-I recently graduated with a degree in IT, KMITL and am currently searching for a job 🥺. I do not have an experience on working in Enterprise that much, but I really want to learn and grow as a developer.
+I recently graduated with a degree in IT, KMITL and am currently searching for a job 🥺. I do not have an experience on working in Enterprise that much, but I really want to learn and grow in an IT career path.
 I love seeking solutions to real-world problems and building products that actually solve them, all while enhancing the user experience (since sometimes I'm that user LOL). 
 I created this website to showcase my skills, my experience. Hope this make you had an interested in me (🪷).\n
 *P.S. I am not just interested in Developer roles; I am also interested in many other areas, such as UX/UI Designer, Game Designer, Business Analyst, System Analyst, Project Manager or even IT Recruiter positions.*
@@ -149,7 +149,7 @@ I created this website to showcase my skills, my experience. Hope this make you 
 
 ### Features
 - **AESTHETIC UI/UX**: I care about how the application looks and feels. I spent a lot of time designing and researcing the UI to be visually appealing and user-friendly. AND MAKE IT REALLY IMPRESSIVE *COOLLLLLLLL!!*
-- **FLIPABLE ANIMATED CARDS**: I spent a lot of time designing and researcing how to make the cards look really cool, yk what? I *REALLY* LOVE IT!
+- **FLIPABLE ANIMATED CARDS**: I want to show a both side of me, so I create flippable cards with **hidden easter eggs**, yk what? I *REALLY* LOVE IT!
 - **CONTACT ME VIA EMAIL TICKET**: If you interested in me, just click the icon to contact me, I will be happy to hear from you!
 - **DISCORD CARD**: ik it's really unformal way, but I also want to show how I adapted my GEN-Z style to make my portfolio look unique and modern, while still maintaining a professional image for potential employers.
       `,
